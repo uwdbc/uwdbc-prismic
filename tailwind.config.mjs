@@ -10,6 +10,11 @@ export default {
       fontFamily: {
         body: ["var(--font-open-sans)"],
         display: ["var(--font-inter)"]
+      },
+      colors: {
+        gold: "#FFD100",
+        lessBlack: "#151515",
+        link: "#009DFF"
       }
     },
   },
