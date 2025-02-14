@@ -7,10 +7,10 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+      fontFamily: {
+        body: ["var(--font-open-sans)"],
+        display: ["var(--font-inter)"]
+      }
     },
   },
   plugins: [],
