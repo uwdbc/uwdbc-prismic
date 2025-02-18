@@ -38,6 +38,36 @@
 						"direction": "ltr"
 					}
 				]
+			},
+			"links_to_social": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "48b8f737-8372-4c4d-b9cd-b4a207be03b4",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "walk"
+									}
+								}
+							],
+							[
+								"link_type",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Instagram",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
 			}
 		},
 		"items": []

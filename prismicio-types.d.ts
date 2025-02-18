@@ -133,6 +133,33 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomeDocument | SettingsDocument;
 
 /**
+ * Item in *Hero → Default → Primary → Links to Social*
+ */
+export interface BigHeaderSliceDefaultPrimaryLinksToSocialItem {
+  /**
+   * link field in *Hero → Default → Primary → Links to Social*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_header.default.primary.links_to_social[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * link type field in *Hero → Default → Primary → Links to Social*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_header.default.primary.links_to_social[].link_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  link_type: prismic.SelectField<
+    "Instagram" | "Linktree" | "Discord" | "Email" | "Membership "
+  >;
+}
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface BigHeaderSliceDefaultPrimary {
@@ -155,6 +182,18 @@ export interface BigHeaderSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   header: prismic.RichTextField;
+
+  /**
+   * Links to Social field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_header.default.primary.links_to_social[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links_to_social: prismic.GroupField<
+    Simplify<BigHeaderSliceDefaultPrimaryLinksToSocialItem>
+  >;
 }
 
 /**
@@ -215,6 +254,7 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       AllDocumentTypes,
       BigHeaderSlice,
+      BigHeaderSliceDefaultPrimaryLinksToSocialItem,
       BigHeaderSliceDefaultPrimary,
       BigHeaderSliceVariation,
       BigHeaderSliceDefault,

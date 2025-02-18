@@ -28,6 +28,40 @@
             "allowTargetBlank": true,
             "multi": "heading1"
           }
+        },
+        "links_to_social": {
+          "type": "Group",
+          "config": {
+            "label": "Links to Social",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              },
+              "link_type": {
+                "type": "Select",
+                "config": {
+                  "label": "link type",
+                  "placeholder": "",
+                  "options": [
+                    "Instagram",
+                    "Linktree",
+                    "Discord",
+                    "Email",
+                    "Membership "
+                  ]
+                }
+              }
+            }
+          }
         }
       },
       "items": {}
