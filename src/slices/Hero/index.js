@@ -1,5 +1,5 @@
-import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
+import { PrismicNextLink } from "@prismicio/next";
 // import { components } from "@/slices";
 /**
  * @typedef {import("@prismicio/client").Content.BigHeaderSlice} BigHeaderSlice
@@ -14,7 +14,8 @@ const components = {
 }
 
 const Hero = ({ slice }) => {
-  console.log(slice.primary.background_image)
+
+  
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -33,6 +34,16 @@ const Hero = ({ slice }) => {
           <a href="#contact-us" className="btn">Contact Us</a>
         </div>
       </div>
+
+      <div className="socials">
+        {slice.primary.links_to_social && slice.primary.links_to_social.map((item, index) => (
+          <div key={index} className="social">
+            <PrismicNextLink field={item.link} className="social-link"/>
+            <>{item.link_type}</>
+          </div>
+        ))}
+      </div>
+
     </section>
   );
 };

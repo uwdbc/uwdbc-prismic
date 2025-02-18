@@ -66,6 +66,56 @@
 								}
 							]
 						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "4102d782-c58b-4e81-8f91-a576fece44ab",
+									"value": {
+										"__TYPE__": "AnyLink",
+										"kind": "any",
+										"text": "hul"
+									}
+								}
+							],
+							[
+								"link_type",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "Linktree"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "ed2dc294-5c4e-4bf8-be3c-8d70637b106d",
+									"value": {
+										"__TYPE__": "AnyLink",
+										"kind": "any",
+										"text": "fat"
+									}
+								}
+							],
+							[
+								"link_type",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "Discord"
+								}
+							]
+						]
 					}
 				]
 			}
