@@ -1,8 +1,8 @@
 const Linktree = (props) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="31"
-      height="37"
+      width="20"
+      height="20"
       fill="none"
       viewBox="0 0 31 37"
     >
