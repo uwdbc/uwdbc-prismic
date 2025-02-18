@@ -57,7 +57,7 @@
     height: 100%;
     z-index: 2;
     padding-left: 100px;
-    margin-top: -20px;
+    margin-right: 150px;
 }
 
 .s-title {
@@ -135,7 +135,9 @@
         font-size: 3.8rem;
     }
 
-    
+    .home-content {
+        margin-right: 60px;
+    }
 
     .btn {
         width: 300px;
@@ -151,6 +153,7 @@
 
     .home-content {
         padding-left: 0px;
+        margin-right: 0px;
     }
 
     .btn-container {
@@ -182,10 +185,80 @@
     ====
 */
 .socials {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    gap: 20px;
+
     position: absolute;
+    right: 50px;
+
     z-index: 2;
+    color: var(--gold);
 }
 
 .social {
-    color: var(--gold);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 6px;
+}
+
+.social-icon {
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    padding: 5px;
+    aspect-ratio: 1;
+}
+
+.link-tag {
+    font-weight: 400;
+    font-family: var(--font-Inter);
+    display: none;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
+
+.social:hover .link-tag {
+    display: block;
+}
+
+/*
+    ====
+    socials next to Hero - Responsive
+    ====
+*/
+
+@media only screen and (max-width: 600px) {
+    .social:hover .link-tag {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .socials {
+        display: none;
+    }
+}
+
+/*
+    ====
+    socials next to Hero - Animation
+    ====
+*/
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(60%, 0, 0) scale(0);
+        -ms-transform: translate3d(60%, 0, 0) scale(0);
+        transform: translate3d(60%, 0, 0) scale(0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0) scale(1);
+        -ms-transform: translate3d(0, 0, 0) scale(1);
+        transform: translate3d(0, 0, 0) scale(1);
+  }
 }
