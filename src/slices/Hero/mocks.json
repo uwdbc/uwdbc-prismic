@@ -48,12 +48,11 @@
 							[
 								"link",
 								{
-									"key": "48b8f737-8372-4c4d-b9cd-b4a207be03b4",
 									"__TYPE__": "LinkContent",
+									"key": "5fd4e3f4-dc03-4a71-9372-34da2b0728a3",
 									"value": {
 										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com",
-										"text": "walk"
+										"url": "https://prismic.io"
 									}
 								}
 							],
@@ -73,12 +72,11 @@
 							[
 								"link",
 								{
-									"key": "4102d782-c58b-4e81-8f91-a576fece44ab",
 									"__TYPE__": "LinkContent",
+									"key": "b3526f29-4e41-4bdc-97ed-b14f80f4ec20",
 									"value": {
-										"__TYPE__": "AnyLink",
-										"kind": "any",
-										"text": "hul"
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
 									}
 								}
 							],
@@ -98,12 +96,11 @@
 							[
 								"link",
 								{
-									"key": "ed2dc294-5c4e-4bf8-be3c-8d70637b106d",
 									"__TYPE__": "LinkContent",
+									"key": "20095d7f-fd24-48f7-a1c3-a1592cee0b35",
 									"value": {
-										"__TYPE__": "AnyLink",
-										"kind": "any",
-										"text": "fat"
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
 									}
 								}
 							],
@@ -125,18 +122,17 @@
 								{
 									"__TYPE__": "FieldContent",
 									"type": "Select",
-									"value": "Membership "
+									"value": "Membership"
 								}
 							],
 							[
 								"link",
 								{
 									"__TYPE__": "LinkContent",
-									"key": "9231fc3c-53eb-4aae-b3c7-b69374ce0a87",
+									"key": "4f644b1a-8706-48b3-83ab-fa83c670472b",
 									"value": {
-										"__TYPE__": "AnyLink",
-										"kind": "any",
-										"text": "jhi"
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
 									}
 								}
 							]

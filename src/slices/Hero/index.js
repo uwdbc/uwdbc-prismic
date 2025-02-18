@@ -1,6 +1,11 @@
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
-// import { components } from "@/slices";
+import Discord from "/public/Discord";
+import Instagram from "/public/Instagram";
+import Linktree from "/public/Linktree";
+import Membership from "/public/Membership";
+import Email from "../../../public/Email";
+
 /**
  * @typedef {import("@prismicio/client").Content.BigHeaderSlice} BigHeaderSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<BigHeaderSlice>} BigHeaderProps
@@ -11,6 +16,14 @@ const components = {
   heading1: ({children}) => (
     <h1 className="s-title">{children}</h1>
   )
+}
+
+const social_linker = {
+  "Discord": <Discord />,
+  "Instagram": <Instagram />,
+  "Linktree": <Linktree />,
+  "Membership": <Membership />,
+  "Email": <Email />
 }
 
 const Hero = ({ slice }) => {
@@ -37,10 +50,10 @@ const Hero = ({ slice }) => {
 
       <div className="socials">
         {slice.primary.links_to_social && slice.primary.links_to_social.map((item, index) => (
-          <div key={index} className="social">
-            <PrismicNextLink field={item.link} className="social-link"/>
-            <>{item.link_type}</>
-          </div>
+          <PrismicNextLink field={item.link} key={index} className="social">
+            <p className="link-tag">{item.link_type}</p>
+            <div className="social-icon">{social_linker[item.link_type]}</div>  
+          </PrismicNextLink>
         ))}
       </div>
 

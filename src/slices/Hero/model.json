@@ -41,8 +41,8 @@
                   "label": "link",
                   "placeholder": "",
                   "select": null,
-                  "allowTargetBlank": true,
-                  "allowText": true,
+                  "allowTargetBlank": false,
+                  "allowText": false,
                   "repeat": false
                 }
               },
