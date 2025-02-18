@@ -73,8 +73,8 @@
 							[
 								"link",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "4102d782-c58b-4e81-8f91-a576fece44ab",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "AnyLink",
 										"kind": "any",
@@ -98,8 +98,8 @@
 							[
 								"link",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "ed2dc294-5c4e-4bf8-be3c-8d70637b106d",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "AnyLink",
 										"kind": "any",
@@ -113,6 +113,31 @@
 									"__TYPE__": "FieldContent",
 									"type": "Select",
 									"value": "Discord"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link_type",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "Membership "
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "9231fc3c-53eb-4aae-b3c7-b69374ce0a87",
+									"value": {
+										"__TYPE__": "AnyLink",
+										"kind": "any",
+										"text": "jhi"
+									}
 								}
 							]
 						]
