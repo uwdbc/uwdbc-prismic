@@ -1,8 +1,8 @@
 const Instagram = (props) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="31"
-      height="31"
+      width={props.width || "30"}
+      height={props.height || "30"}
       fill="none"
       viewBox="0 0 31 31"
     >
