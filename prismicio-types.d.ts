@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = never;
+type HomeDocumentDataSlicesSlice = BigHeaderSlice;
 
 /**
  * Content for Home documents
@@ -132,6 +132,61 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = HomeDocument | SettingsDocument;
 
+/**
+ * Primary content in *Hero → Default → Primary*
+ */
+export interface BigHeaderSliceDefaultPrimary {
+  /**
+   * Background Image field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_header.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_header.default.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  header: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BigHeaderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BigHeaderSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Hero*
+ */
+type BigHeaderSliceVariation = BigHeaderSliceDefault;
+
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `big_header`
+ * - **Description**: BigHeader
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BigHeaderSlice = prismic.SharedSlice<
+  "big_header",
+  BigHeaderSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -159,6 +214,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      BigHeaderSlice,
+      BigHeaderSliceDefaultPrimary,
+      BigHeaderSliceVariation,
+      BigHeaderSliceDefault,
     };
   }
 }

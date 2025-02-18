@@ -36,7 +36,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={clsx(inter.variable, openSans.variable)}>
       <body>
-        <div className="">Hello susy</div>
         {children}
       </body>
     </html>
