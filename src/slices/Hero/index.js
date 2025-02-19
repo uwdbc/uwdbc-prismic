@@ -56,7 +56,12 @@ const Hero = ({ slice }) => {
           </PrismicNextLink>
         ))}
       </div>
-
+      <section className="bottom-hero">
+        <div className="slider"></div>
+        <a className="home-content__scroll" href="#about">
+          <span>Scroll Down</span>
+        </a>
+      </section>
     </section>
   );
 };
