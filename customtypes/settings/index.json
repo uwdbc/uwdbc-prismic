@@ -27,6 +27,14 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "website_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Website logo",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }
