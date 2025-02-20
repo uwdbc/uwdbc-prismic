@@ -2,6 +2,7 @@ import { Inter, Open_Sans } from "next/font/google";
 import { clsx } from "clsx";
 import { createClient } from "@/prismicio";
 import "./globals.css";
+import Header from "@/components/Header";
 
 // Font Decleration
 const inter = Inter({
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={clsx(inter.variable, openSans.variable)}>
       <body>
+        <Header />
         {children}
       </body>
     </html>
