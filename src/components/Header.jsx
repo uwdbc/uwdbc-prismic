@@ -10,15 +10,17 @@ export default async function Header() {
     
     return (
         <header>
-            <PrismicNextImage field={data.website_logo} className="site-logo"/>
+            <a href="/">
+                <PrismicNextImage field={data.website_logo} className="site-logo"/>
+            </a>
             <div className="right-side">
-                <label 
+                {/* <label 
                 htmlFor="themeToggle"
                 className="themeToggle st-sunMoonThemeToggleBtn"
                 type="checkbox" >
                     <input type="checkbox" id="themeToggle" className="themeToggleInput" />
                     <ThemeToggle />
-                </label>
+                </label> */}
 
                 <button>
                     <span>Menu</span>

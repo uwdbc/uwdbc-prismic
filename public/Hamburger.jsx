@@ -1,8 +1,8 @@
 const Hamburger = (props) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="22"
+      width="25"
+      height="17"
       fill="none"
       viewBox="0 0 30 22"
     >
