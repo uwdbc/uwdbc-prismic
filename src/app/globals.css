@@ -431,7 +431,7 @@
     z-index: 3;
 }
 
-header > .right-side > button {
+.Menu-Button {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -444,5 +444,21 @@ header > .right-side > button {
     color: white;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+    padding: 0.4rem 0.8rem;
+}
 
+.shaded {
+    background-color: black;
+}
+
+/* 
+    ====
+    Header - Responsive
+    ====
+*/
+
+@media only screen and (max-width: 450px) {
+    .Menu-Button > span {
+        display: none;
+    }
 }

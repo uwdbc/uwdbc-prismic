@@ -1,17 +1,47 @@
+"use client";
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
-import ThemeToggle from "/public/ThemeToggle";
+// import ThemeToggle from "/public/ThemeToggle";
 import Hamburger from "/public/Hamburger";
+import { useEffect, useState } from "react";
+import clsx from "clsx";
 
-export default async function Header() {
-    const client = createClient()
-    const response = await client.getSingle("settings");
-    const data = response.data;
+export default function Header() {
+    const [menuButtonClasses, setMenuButtonClasses] = useState("Menu-Button");
+    const [data, setdata] = useState(undefined); // Store fetched data
+
+    useEffect(() => {
+        // Scroll event listener
+        const handleScroll = () => {
+        if (window.scrollY >= 80) {
+            setMenuButtonClasses(clsx("Menu-Button", "shaded"));
+        } else {
+            setMenuButtonClasses(clsx("Menu-Button"));
+        }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+        window.removeEventListener("scroll", handleScroll);
+        };
+    }, []); // Runs once on mount
+
+    useEffect(() => {
+        // Fetch data from Prismic
+        const fetchData = async () => {
+        const client = createClient();
+        const response = await client.getSingle("settings");
+        setdata(response.data);
+        };
+
+        fetchData();
+    }, []); // Runs once on mount
     
     return (
         <header>
             <a href="/">
-                <PrismicNextImage field={data.website_logo} className="site-logo"/>
+                {data && <PrismicNextImage field={data.website_logo} className="site-logo"/>}
             </a>
             <div className="right-side">
                 {/* <label 
@@ -22,7 +52,7 @@ export default async function Header() {
                     <ThemeToggle />
                 </label> */}
 
-                <button>
+                <button className={menuButtonClasses}>
                     <span>Menu</span>
                     <Hamburger />
                 </button>
