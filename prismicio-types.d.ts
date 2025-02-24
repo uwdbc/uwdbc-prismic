@@ -144,6 +144,82 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomeDocument | SettingsDocument;
 
 /**
+ * Primary content in *AboutUs → Default → Primary*
+ */
+export interface AboutUsSliceDefaultPrimary {
+  /**
+   * Header field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  header: prismic.RichTextField;
+
+  /**
+   * paragraph field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Video? field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: about_us.default.primary.video_bool
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  video_bool: prismic.BooleanField;
+
+  /**
+   * Video field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  video: prismic.EmbedField;
+}
+
+/**
+ * Default variation for AboutUs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutUsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutUsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutUs*
+ */
+type AboutUsSliceVariation = AboutUsSliceDefault;
+
+/**
+ * AboutUs Shared Slice
+ *
+ * - **API ID**: `about_us`
+ * - **Description**: AboutUs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutUsSlice = prismic.SharedSlice<
+  "about_us",
+  AboutUsSliceVariation
+>;
+
+/**
  * Item in *Hero → Default → Primary → Links to Social*
  */
 export interface BigHeaderSliceDefaultPrimaryLinksToSocialItem {
@@ -264,6 +340,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      AboutUsSlice,
+      AboutUsSliceDefaultPrimary,
+      AboutUsSliceVariation,
+      AboutUsSliceDefault,
       BigHeaderSlice,
       BigHeaderSliceDefaultPrimaryLinksToSocialItem,
       BigHeaderSliceDefaultPrimary,
