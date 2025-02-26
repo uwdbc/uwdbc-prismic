@@ -1,4 +1,4 @@
-import { Inter, Open_Sans } from "next/font/google";
+import { Inter, Montserrat, Michroma } from "next/font/google";
 import { clsx } from "clsx";
 import { createClient } from "@/prismicio";
 import "./globals.css";
@@ -11,9 +11,16 @@ const inter = Inter({
   display: 'swap',
 })
 
-const openSans = Open_Sans({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  variable: '--font-open-sans',
+  variable: '--font-montserrat',
+  display: 'swap',
+})
+
+const michroma = Michroma({
+  subsets: ['latin'],
+  weight: "400",
+  variable: '--font-michroma',
   display: 'swap',
 })
 
@@ -35,7 +42,7 @@ export async function generateMetadata() {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={clsx(inter.variable, openSans.variable)}>
+    <html lang="en" className={clsx(inter.variable, michroma.variable, montserrat.variable)}>
       <body>
         <Header />
         {children}

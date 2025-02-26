@@ -8,8 +8,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ["var(--font-open-sans)"],
-        display: ["var(--font-inter)"]
+        michroma: ["var(--font-michroma)"],
+        inter: ["var(--font-inter)"],
+        montserrat: ["var(--font-montserrat)"]
       },
       colors: {
         gold: "#FFD100",
