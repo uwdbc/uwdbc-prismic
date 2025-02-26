@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = BigHeaderSlice;
+type HomeDocumentDataSlicesSlice = AboutUsSlice | BigHeaderSlice;
 
 /**
  * Content for Home documents
@@ -182,7 +182,7 @@ export interface AboutUsSliceDefaultPrimary {
    * Video field in *AboutUs → Default → Primary*
    *
    * - **Field Type**: Embed
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Here is the video, it will only be displayed if video? is set to true
    * - **API ID Path**: about_us.default.primary.video
    * - **Documentation**: https://prismic.io/docs/field#embed
    */

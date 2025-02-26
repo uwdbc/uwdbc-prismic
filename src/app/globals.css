@@ -488,8 +488,23 @@ body {
     text-align: center;
 }
 
-.about-us > p {
+.about-us > p:first-child {
     font-family: var(--font-Michroma);
+    text-transform: uppercase;
+}
+
+.about-us > h2 {
+    font-size: 4.8rem;
+    font-weight: 700;
+    font-family: var(--font-Montserrat);
+    text-transform: capitalize;
+    line-height: 80%;
+    margin-bottom: 3.4rem;
+    margin-top: 0.8rem;
+}
+
+.about-us > p:last-child {
+    font-family: var(--font-Montserrat);
 }
 
 
