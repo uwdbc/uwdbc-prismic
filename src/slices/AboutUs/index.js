@@ -5,6 +5,12 @@ import { PrismicRichText } from "@prismicio/react";
  * @param {AboutUsProps}
  */
 
+const components = {
+  paragraph: ({children}) =>(
+    <p className="about-us-para">{children}</p>
+  )
+}
+
 const AboutUs = ({ slice }) => {
   return (
     <section
@@ -14,7 +20,12 @@ const AboutUs = ({ slice }) => {
     >
       <p>Hello There</p>
       <PrismicRichText field={slice.primary.header}/>
-      <PrismicRichText field={slice.primary.paragraph}/>
+      <PrismicRichText field={slice.primary.paragraph} components={components}/>
+      {slice.primary.video_bool ? 
+        <div className="video">
+          <div dangerouslySetInnerHTML={{ __html: slice.primary.video_link }} />
+        </div>: ""}
+      <div className="about__line"></div>
     </section>
   );
 };
