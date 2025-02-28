@@ -39,11 +39,11 @@
             "default_value": true
           }
         },
-        "video": {
-          "type": "Embed",
+        "video_link": {
+          "type": "Text",
           "config": {
-            "label": "Video",
-            "placeholder": "Here is the video, it will only be displayed if video? is set to true"
+            "label": "Video Link",
+            "placeholder": ""
           }
         }
       },

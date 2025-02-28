@@ -179,14 +179,14 @@ export interface AboutUsSliceDefaultPrimary {
   video_bool: prismic.BooleanField;
 
   /**
-   * Video field in *AboutUs → Default → Primary*
+   * Video Link field in *AboutUs → Default → Primary*
    *
-   * - **Field Type**: Embed
-   * - **Placeholder**: Here is the video, it will only be displayed if video? is set to true
-   * - **API ID Path**: about_us.default.primary.video
-   * - **Documentation**: https://prismic.io/docs/field#embed
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.video_link
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  video: prismic.EmbedField;
+  video_link: prismic.KeyTextField;
 }
 
 /**
