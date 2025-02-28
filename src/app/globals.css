@@ -5,9 +5,11 @@
 :root {
     --light-black: #151515;
     --gold: #FFD100;
+    --white: white;
     --cur-bg: var(--light-black);
+    --p-col: var(--white);
+    --h-col: var(--gold);
     background-color: var(--cur-bg);
-    --cur-font-clr: var(--gold);
     --font-Inter: "Inter", Arial, Helvetica, sans-serif;
     --font-Montserrat: "Montserrat", Arial, Helvetica, sans-serif;
     --font-Michroma: "Michroma", Arial, Helvetica, sans-serif;
@@ -76,7 +78,7 @@ body {
     line-height: 90%;
 
     margin-block: 20px;
-    color: var(--cur-font-clr);
+    color: var(--gold);
     z-index: 3;
 }
 
@@ -481,7 +483,7 @@ body {
 */
 
 .about-us {
-    color: white;
+    color: var(--p-col);
     padding: 7rem 2.5rem;
     display: flex;
     flex-direction: column;
@@ -507,7 +509,7 @@ body {
     font-family: var(--font-Montserrat);
     text-transform: capitalize;
     line-height: 80%;
-    color: var(--gold);
+    color: var(--h-col);
 
     margin-bottom: 6rem;
     margin-top: 0.8rem;
@@ -560,9 +562,15 @@ body {
     width: 100%;
     aspect-ratio: 16/9; /* 16:9 aspect ratio */
     box-shadow: 3px 6px 34.3px 0px #3A39396E;
+    transition: all 0.5s ease-in-out;
 }
 
 .video > div > iframe {
     width: 100%;
     height: 100%;
+}
+
+.video > div:hover {
+    box-shadow: 0px 0px 34.3px 0px #FFD10061;
+
 }

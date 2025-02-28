@@ -17,6 +17,7 @@ const AboutUs = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="about-us"
+      id="about"
     >
       <p>Hello There</p>
       <PrismicRichText field={slice.primary.header}/>
