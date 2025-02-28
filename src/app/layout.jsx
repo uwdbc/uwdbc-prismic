@@ -1,6 +1,7 @@
 import { Inter, Montserrat, Michroma } from "next/font/google";
 import { clsx } from "clsx";
 import { createClient } from "@/prismicio";
+import { PrismicNextImage } from "@prismicio/next";
 import "./globals.css";
 import Header from "@/components/Header";
 
@@ -24,12 +25,17 @@ const michroma = Michroma({
   display: 'swap',
 })
 
-//Metadata Func
-export async function generateMetadata() {
+async function getSettings() {
   const client = createClient();
 
   const page = await client.getSingle("settings");
- 
+  return page
+}
+
+//Metadata Func
+export async function generateMetadata() {
+  const page = await getSettings();
+  
   return {
     title: page.data.title || "UW Dragon Boat",
     description: page.data.description || "UWDBC is the perfect club for you",
@@ -38,12 +44,17 @@ export async function generateMetadata() {
     },
   }
 }
- 
 
-export default function RootLayout({ children }) {
+
+export default async function RootLayout({ children }) {
+  const page = await getSettings();
+  
   return (
     <html lang="en" className={clsx(inter.variable, michroma.variable, montserrat.variable)}>
       <body>
+        <a href="/">
+            <PrismicNextImage field={page.data.website_logo} className="site-logo"/>
+        </a>
         <Header />
         {children}
       </body>

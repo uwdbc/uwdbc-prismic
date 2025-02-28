@@ -1,6 +1,5 @@
 "use client";
 import { createClient } from "@/prismicio";
-import { PrismicNextImage } from "@prismicio/next";
 // import ThemeToggle from "/public/ThemeToggle";
 import Hamburger from "/public/Hamburger";
 import { useEffect, useState } from "react";
@@ -40,9 +39,6 @@ export default function Header() {
     
     return (
         <header>
-            <a href="/">
-                {data && <PrismicNextImage field={data.website_logo} className="site-logo"/>}
-            </a>
             <div className="right-side">
                 {/* <label 
                 htmlFor="themeToggle"
