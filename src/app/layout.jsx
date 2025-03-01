@@ -41,7 +41,7 @@ export async function generateMetadata() {
     description: page.data.description || "UWDBC is the perfect club for you",
     openGraph: {
       images: [ page.data.og_image.url || "" ],
-    },
+    }
   }
 }
 
@@ -51,7 +51,7 @@ export default async function RootLayout({ children }) {
   
   return (
     <html lang="en" className={clsx(inter.variable, michroma.variable, montserrat.variable)}>
-      <body>
+        <body>
         <a href="/">
             <PrismicNextImage field={page.data.website_logo} className="site-logo"/>
         </a>

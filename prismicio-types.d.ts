@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = AboutUsSlice | BigHeaderSlice;
+type HomeDocumentDataSlicesSlice =
+  | CalendarSlice
+  | AboutUsSlice
+  | BigHeaderSlice;
 
 /**
  * Content for Home documents
@@ -313,6 +316,81 @@ export type BigHeaderSlice = prismic.SharedSlice<
   BigHeaderSliceVariation
 >;
 
+/**
+ * Primary content in *Calendar → Default → Primary*
+ */
+export interface CalendarSliceDefaultPrimary {
+  /**
+   * Heading field in *Calendar → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendar.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * info field in *Calendar → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendar.default.primary.info
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  info: prismic.RichTextField;
+
+  /**
+   * Calendar Iframe field in *Calendar → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendar.default.primary.calendar_iframe
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  calendar_iframe: prismic.KeyTextField;
+
+  /**
+   * background Image field in *Calendar → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendar.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Calendar Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CalendarSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CalendarSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Calendar*
+ */
+type CalendarSliceVariation = CalendarSliceDefault;
+
+/**
+ * Calendar Shared Slice
+ *
+ * - **API ID**: `calendar`
+ * - **Description**: Calendar
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CalendarSlice = prismic.SharedSlice<
+  "calendar",
+  CalendarSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -349,6 +427,10 @@ declare module "@prismicio/client" {
       BigHeaderSliceDefaultPrimary,
       BigHeaderSliceVariation,
       BigHeaderSliceDefault,
+      CalendarSlice,
+      CalendarSliceDefaultPrimary,
+      CalendarSliceVariation,
+      CalendarSliceDefault,
     };
   }
 }
