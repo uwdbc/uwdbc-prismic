@@ -21,7 +21,7 @@ const Calendar = ({ slice }) => {
         )}
       }/>
       <PrismicRichText field={slice.primary.info} />
-      <div dangerouslySetInnerHTML={{ __html: slice.primary.calendar_iframe }} />
+      <div className="calendar-container" dangerouslySetInnerHTML={{ __html: slice.primary.calendar_iframe }} />
     </section>
   );
 };

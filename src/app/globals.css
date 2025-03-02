@@ -566,7 +566,7 @@ body {
     width: 100%;
     aspect-ratio: 16/9; /* 16:9 aspect ratio */
     box-shadow: 3px 6px 34.3px 0px #3A39396E;
-    transition: all 0.5s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 .video > div > iframe {
@@ -575,7 +575,7 @@ body {
 }
 
 .video > div:hover {
-    box-shadow: 0px 0px 34.3px 0px #FFD10061;
+    box-shadow: 0px 0px 34.3px 0px #95907c61;
 
 }
 
@@ -597,7 +597,7 @@ section.calendar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
 
     background-size: cover;
     background-position: center;
@@ -620,8 +620,9 @@ section.calendar {
 .calendar > p {
     font-family: var(--font-Montserrat);
     color: var(--white);
-    font-size: clamp(1rem, 0.8vw + 0.8rem, 1.2rem);
+    font-size: clamp(0.8rem, 0.8vw + 0.8rem, 1rem);
     max-width: 50rem;
+    padding-inline: 4.8rem;
     margin-bottom: 2rem;
 }
 
@@ -629,4 +630,54 @@ section.calendar {
     cursor: pointer;
     color: aqua;
     text-decoration: underline;
+}
+
+.calendar-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    max-width: 56rem;
+    border-radius: 0.8rem;
+    overflow: hidden;
+}
+
+.calendar-container > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: invert(.9) saturate(1) hue-rotate(-180deg);
+}
+
+
+/* 
+    ====
+    Calendar - Responsive
+    ====
+*/
+
+@media only screen and (max-width:750px) {
+    
+    .calendar > p {
+        padding-inline: 1.2rem;
+    }
+}
+
+@media only screen and (max-width:650px) {
+    section.calendar {
+        padding-inline: 2rem;
+    }
+    
+    .calendar > p {
+        padding-inline: 0px;
+    }
+}
+
+
+@media only screen and (max-width:500px) {
+    section.calendar {
+        padding-inline: 1rem;
+    }
+
 }
