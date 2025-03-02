@@ -391,6 +391,58 @@ export type CalendarSlice = prismic.SharedSlice<
   CalendarSliceVariation
 >;
 
+/**
+ * Primary content in *Info → Default → Primary*
+ */
+export interface InfoSliceDefaultPrimary {
+  /**
+   * Heading field in *Info → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * paragraph field in *Info → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info.default.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Info Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InfoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Info*
+ */
+type InfoSliceVariation = InfoSliceDefault;
+
+/**
+ * Info Shared Slice
+ *
+ * - **API ID**: `info`
+ * - **Description**: Info
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoSlice = prismic.SharedSlice<"info", InfoSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -431,6 +483,10 @@ declare module "@prismicio/client" {
       CalendarSliceDefaultPrimary,
       CalendarSliceVariation,
       CalendarSliceDefault,
+      InfoSlice,
+      InfoSliceDefaultPrimary,
+      InfoSliceVariation,
+      InfoSliceDefault,
     };
   }
 }
