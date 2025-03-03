@@ -596,21 +596,21 @@ section.calendar {
     width: 100%;
     position: relative;
     z-index: 2;
-    text-align: center;
-
+    
     padding: 8rem 3rem;
     
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2.5rem;
-
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.calendar > .text-container {
+.text-container {
+    text-align: center;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -649,7 +649,7 @@ section.calendar {
     text-decoration: underline;
 }
 
-.text-container > p > a:hover svg {
+.text-container>p>a:hover svg {
     animation: slope 1s linear infinite;
 }
 
@@ -713,4 +713,23 @@ section.calendar {
         padding-inline: 1rem;
     }
 
+}
+
+/* 
+    ====
+    Info
+    ====
+*/
+
+.Info{
+    padding: 8rem 3rem;
+    width: 100%;
+}
+
+.Info > .text-container > h2 {
+    color: var(--h-col);
+}
+
+.Info > .text-container > p {
+    color: var(--p-col);
 }

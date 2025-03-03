@@ -1,3 +1,5 @@
+import { PrismicRichText } from "@prismicio/react";
+
 /**
  * @typedef {import("@prismicio/client").Content.InfoSlice} InfoSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<InfoSlice>} InfoProps
@@ -8,8 +10,16 @@ const Info = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-    >
-      Placeholder component for info (variation: {slice.variation}) Slices
+      className="Info"
+    > 
+    <div className="text-container">
+      <PrismicRichText field={slice.primary.heading} components={{
+        heading2: ({children}) => (
+          <h2 className="glow">{children}</h2>
+        )
+      }}/>
+      <PrismicRichText field={slice.primary.paragraph} />
+    </div>
     </section>
   );
 };
