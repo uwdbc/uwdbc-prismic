@@ -1,4 +1,5 @@
 import { PrismicRichText } from "@prismicio/react";
+import CalendarIcon from "/public/CalendarIcon";
 
 /**
  * @typedef {import("@prismicio/client").Content.CalendarSlice} CalendarSlice
@@ -15,12 +16,18 @@ const Calendar = ({ slice }) => {
     >
       <div className="overlay"></div>
       <div className="shadow-overlay"></div>
-      <PrismicRichText field={slice.primary.heading} components={
-        {heading2: ({children})=>(
-          <h2 className="glow">{children}</h2>
-        )}
-      }/>
-      <PrismicRichText field={slice.primary.info} />
+      <div className="text-container">
+        <PrismicRichText field={slice.primary.heading} components={{
+          heading2: ({children})=>(
+            <h2 className="glow">{children}</h2>
+          )
+        }}/>
+        <PrismicRichText field={slice.primary.info} components={{
+          hyperlink: ({children}) =>(
+            <a>{children}<CalendarIcon /></a>
+          )
+        }}/>
+      </div>
       <div className="calendar-container" dangerouslySetInnerHTML={{ __html: slice.primary.calendar_iframe }} />
     </section>
   );

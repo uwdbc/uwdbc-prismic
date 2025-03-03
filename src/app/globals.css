@@ -35,7 +35,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    z-index: -2;
+    z-index: 2;
 }
 
 .overlay {
@@ -108,6 +108,11 @@ body {
     color: var(--gold);
     text-transform: uppercase;
     text-align: center;
+    transition: all 0.3s ease-in;
+}
+
+.btn:hover {
+    background-color: rgb(0 0 0 / 71%);
 }
 
 /* 
@@ -210,7 +215,7 @@ body {
     position: absolute;
     right: 50px;
 
-    z-index: 2;
+    z-index: 3;
     color: var(--gold);
 }
 
@@ -219,6 +224,7 @@ body {
     justify-content: end;
     align-items: center;
     gap: 6px;
+    cursor: pointer;
 }
 
 .social-icon {
@@ -589,7 +595,7 @@ section.calendar {
     height: 100%;
     width: 100%;
     position: relative;
-    z-index: -2;
+    z-index: 2;
     text-align: center;
 
     padding: 8rem 3rem;
@@ -597,18 +603,26 @@ section.calendar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2.5rem;
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
+.calendar > .text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
 .glow {
     text-shadow: 0px 0px 26px rgba(255, 209, 0, 0.36);
 }
 
-.calendar > h2 {
+.text-container > h2 {
     font-family: var(--font-Montserrat);
     font-weight: 700;
     font-size: clamp(2rem, 4vw + 0.8rem, 4.8rem);
@@ -617,7 +631,7 @@ section.calendar {
     color: var(--gold);
 }
 
-.calendar > p {
+.text-container > p {
     font-family: var(--font-Montserrat);
     color: var(--white);
     font-size: clamp(0.8rem, 0.8vw + 0.8rem, 1rem);
@@ -626,10 +640,29 @@ section.calendar {
     margin-bottom: 2rem;
 }
 
-.calendar > p > a {
+.text-container > p > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
     cursor: pointer;
     color: aqua;
     text-decoration: underline;
+}
+
+.text-container > p > a:hover svg {
+    animation: slope 1s linear infinite;
+}
+
+@keyframes slope {
+    0% {
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+    }
 }
 
 .calendar-container {
