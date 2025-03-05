@@ -431,9 +431,57 @@ export type InfoSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Info → Imaged → Primary*
+ */
+export interface InfoSliceImagedPrimary {
+  /**
+   * Heading field in *Info → Imaged → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info.imaged.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * paragraph field in *Info → Imaged → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info.imaged.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Image field in *Info → Imaged → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info.imaged.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Imaged variation for Info Slice
+ *
+ * - **API ID**: `imaged`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoSliceImaged = prismic.SharedSliceVariation<
+  "imaged",
+  Simplify<InfoSliceImagedPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Info*
  */
-type InfoSliceVariation = InfoSliceDefault;
+type InfoSliceVariation = InfoSliceDefault | InfoSliceImaged;
 
 /**
  * Info Shared Slice
@@ -486,8 +534,10 @@ declare module "@prismicio/client" {
       CalendarSliceDefault,
       InfoSlice,
       InfoSliceDefaultPrimary,
+      InfoSliceImagedPrimary,
       InfoSliceVariation,
       InfoSliceDefault,
+      InfoSliceImaged,
     };
   }
 }

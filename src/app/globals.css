@@ -597,7 +597,7 @@ section.calendar {
     position: relative;
     z-index: 2;
     
-    padding: 8rem 3rem;
+    padding: 12rem 3rem;
     
     display: flex;
     flex-direction: column;
@@ -607,6 +607,11 @@ section.calendar {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.calendar > .shadow-overlay {
+    background: linear-gradient(180deg, #151515 0%, rgba(21, 21, 21, 0.4) 16.5%, rgba(21, 21, 21, 0) 50%, rgba(21, 21, 21, 0.4) 83%, #151515 100%);
+    opacity: 1;
 }
 
 .text-container {
@@ -726,10 +731,15 @@ section.calendar {
     width: 100%;
 }
 
+.Info > .text-container {
+    justify-content: center;
+}
+
 .Info > .text-container > h2 {
     color: var(--h-col);
 }
 
 .Info > .text-container > p {
     color: var(--p-col);
+    margin-bottom: 0px;
 }
