@@ -1,4 +1,5 @@
 import { PrismicRichText } from "@prismicio/react";
+import clsx from "clsx";
 
 /**
  * @typedef {import("@prismicio/client").Content.InfoSlice} InfoSlice
@@ -10,16 +11,20 @@ const Info = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="Info"
-    > 
-    <div className="text-container">
-      <PrismicRichText field={slice.primary.heading} components={{
-        heading2: ({children}) => (
-          <h2 className="glow">{children}</h2>
-        )
-      }}/>
-      <PrismicRichText field={slice.primary.paragraph} />
-    </div>
+      style={slice.variation == "imaged" ? 
+        {backgroundImage:`url(${slice.primary.image.url})`} 
+        : {}}
+      className={clsx("Info", slice.variation == "imaged" && "Info-Imaged")}
+    >
+      {slice.variation == "imaged" ? <div className="Info-overlay"></div> : ""}
+      <div className="text-container">
+        <PrismicRichText field={slice.primary.heading} components={{
+          heading2: ({children}) => (
+            <h2 className="glow">{children}</h2>
+          )
+        }}/>
+        <PrismicRichText field={slice.primary.paragraph} />
+      </div>
     </section>
   );
 };

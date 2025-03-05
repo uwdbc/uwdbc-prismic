@@ -630,7 +630,7 @@ section.calendar {
 .text-container > h2 {
     font-family: var(--font-Montserrat);
     font-weight: 700;
-    font-size: clamp(2rem, 4vw + 0.8rem, 4.8rem);
+    font-size: clamp(2rem, 4vw + 0.2rem, 4.8rem);
     line-height: 2.3rem;
     text-transform: uppercase;
     color: var(--gold);
@@ -742,4 +742,71 @@ section.calendar {
 .Info > .text-container > p {
     color: var(--p-col);
     margin-bottom: 0px;
+}
+
+/* 
+    ====
+    Info - Imaged
+    ====
+*/
+
+.Info-Imaged {
+    background-size: 70% auto;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    
+    position: relative;
+}
+
+.Info-overlay {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(270deg, rgba(21, 21, 21, 0.1) 16.81%, #151515 85%);
+}
+
+.Info-Imaged > .text-container {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 50%;
+    text-align: left;
+    gap: 2rem;
+}
+
+.Info-Imaged > .text-container > h2 {
+    line-height: 90%;
+    font-size: clamp(2rem, 4vw, 4.8rem);
+}
+
+.Info-Imaged > .text-container > p {
+    padding-inline: 0px;
+}
+
+/* 
+    ====
+    Info - Imaged _ Responsive
+    ====
+*/
+
+@media only screen and (max-width: 500px) {
+    .Info-Imaged {
+        background-size: 0;
+    }
+    .Info-Imaged > .text-container {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .Info {
+        padding-block: 4rem;
+    }
+    
+    .Info > .text-container > p {
+        padding-inline: 0;
+    }
 }
