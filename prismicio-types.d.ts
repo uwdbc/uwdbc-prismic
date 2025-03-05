@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomeDocumentDataSlicesSlice =
+  | FooterSlice
   | InfoSlice
   | CalendarSlice
   | AboutUsSlice
@@ -393,6 +394,119 @@ export type CalendarSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Footer → Default → Primary → Links to Social*
+ */
+export interface FooterSliceDefaultPrimaryLinksToSocialItem {
+  /**
+   * link field in *Footer → Default → Primary → Links to Social*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.links_to_social[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * link type field in *Footer → Default → Primary → Links to Social*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Instagram
+   * - **API ID Path**: footer.default.primary.links_to_social[].link_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  link_type: prismic.SelectField<
+    "Instagram" | "Discord" | "Email" | "Linktree" | "Membership",
+    "filled"
+  >;
+}
+
+/**
+ * Primary content in *Footer → Default → Primary*
+ */
+export interface FooterSliceDefaultPrimary {
+  /**
+   * Background Image field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * small paragraph field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.small_paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  small_paragraph: prismic.RichTextField;
+
+  /**
+   * location field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Keep it in different lines
+   * - **API ID Path**: footer.default.primary.location
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  location: prismic.RichTextField;
+
+  /**
+   * email field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.email
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Links to Social field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.links_to_social[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links_to_social: prismic.GroupField<
+    Simplify<FooterSliceDefaultPrimaryLinksToSocialItem>
+  >;
+}
+
+/**
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Footer*
+ */
+type FooterSliceVariation = FooterSliceDefault;
+
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: Footer
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
+
+/**
  * Primary content in *Info → Default → Primary*
  */
 export interface InfoSliceDefaultPrimary {
@@ -532,6 +646,11 @@ declare module "@prismicio/client" {
       CalendarSliceDefaultPrimary,
       CalendarSliceVariation,
       CalendarSliceDefault,
+      FooterSlice,
+      FooterSliceDefaultPrimaryLinksToSocialItem,
+      FooterSliceDefaultPrimary,
+      FooterSliceVariation,
+      FooterSliceDefault,
       InfoSlice,
       InfoSliceDefaultPrimary,
       InfoSliceImagedPrimary,

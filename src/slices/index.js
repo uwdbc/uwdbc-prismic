@@ -6,5 +6,6 @@ export const components = {
   about_us: dynamic(() => import("./AboutUs")),
   big_header: dynamic(() => import("./Hero")),
   calendar: dynamic(() => import("./Calendar")),
+  footer: dynamic(() => import("./Footer")),
   info: dynamic(() => import("./Info")),
 };

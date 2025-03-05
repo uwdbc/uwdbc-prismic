@@ -1,0 +1,87 @@
+{
+  "id": "footer",
+  "type": "SharedSlice",
+  "name": "Footer",
+  "description": "Footer",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "small_paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "small paragraph",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "location": {
+          "type": "StructuredText",
+          "config": {
+            "label": "location",
+            "placeholder": "Keep it in different lines",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "email": {
+          "type": "Text",
+          "config": {
+            "label": "email",
+            "placeholder": ""
+          }
+        },
+        "links_to_social": {
+          "type": "Group",
+          "config": {
+            "label": "Links to Social",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              },
+              "link_type": {
+                "type": "Select",
+                "config": {
+                  "label": "link type",
+                  "placeholder": "",
+                  "options": [
+                    "Instagram",
+                    "Discord",
+                    "Email",
+                    "Linktree",
+                    "Membership"
+                  ],
+                  "default_value": "Instagram"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
