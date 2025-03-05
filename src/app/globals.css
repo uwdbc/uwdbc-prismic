@@ -46,12 +46,10 @@ body {
     height: 100%;
     opacity: .6;
     background-color: #000000;
-    z-index: -1;
 }
 
 .shadow-overlay {
     position: absolute;
-    z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
@@ -595,7 +593,6 @@ section.calendar {
     height: 100%;
     width: 100%;
     position: relative;
-    z-index: 2;
     
     padding: 12rem 3rem;
     
@@ -615,6 +612,7 @@ section.calendar {
 }
 
 .text-container {
+    position:relative;
     text-align: center;
     width: 100%;
     display: flex;
@@ -808,5 +806,111 @@ section.calendar {
     
     .Info > .text-container > p {
         padding-inline: 0;
+    }
+}
+
+/* 
+    ====
+    Contact US
+    ====
+*/
+
+.contact {
+    width: 100%;
+    height: calc(100vh + 3rem);
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+
+    position: relative;
+}
+
+.long-stick {
+    position: absolute;
+    height: 6rem;
+    top: 0px;
+    right: calc(50% - 1px);
+    width: 2px;
+    
+    background-color: var(--gold);
+    z-index: 3;
+}
+
+.contact-text {
+    position: absolute;
+    top: 7rem;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+}
+
+.contact-text > span {
+    font-family: var(--font-Montserrat);
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-text > p {
+    font-family: var(--font-Montserrat);
+    color: rgba(255, 255, 255, 0.60);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.contact > .left-sec {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4rem;
+
+    color: rgba(204, 204, 204, 0.878);
+    font-family: var(--font-Montserrat);
+
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.contact > .left-sec > div > h6 {
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.contact > .left-sec > div > h6 {
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.contact > .left-sec > div > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+    cursor: pointer;
+    color: #0087cc;
+    text-decoration: underline;
+    transition: all 0.3s ease-in;
+}
+
+.contact > .left-sec > div > a:hover {
+    color: var(--gold);
+}
+
+@media only screen and (max-width:600px) {
+    .contact > .left-sec {
+        margin-top: 4rem;
+        width: 100%;
+        left: 0;
+        text-align: center;
     }
 }
