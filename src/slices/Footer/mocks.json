@@ -62,12 +62,11 @@
 							[
 								"link",
 								{
-									"key": "634bfa36-3d99-4ba4-93c3-d2244a384f86",
 									"__TYPE__": "LinkContent",
+									"key": "8112d2c6-9b18-4e7f-bdff-bbe70d361235",
 									"value": {
 										"__TYPE__": "ExternalLink",
-										"url": "http://google.com",
-										"text": "duck"
+										"url": "https://slicemachine.dev"
 									}
 								}
 							],

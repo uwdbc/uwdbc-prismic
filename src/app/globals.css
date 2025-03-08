@@ -230,6 +230,11 @@ body {
     border-radius: 50%;
     padding: 5px;
     aspect-ratio: 1;
+    transition: all 0.3s ease-in;
+}
+
+.social-icon:hover {
+    background-color: #131313b5;
 }
 
 .link-tag {
@@ -868,8 +873,7 @@ section.calendar {
 
 .contact > .left-sec {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 20rem;
     left: 4rem;
 
     color: rgba(204, 204, 204, 0.878);
@@ -906,11 +910,60 @@ section.calendar {
     color: var(--gold);
 }
 
+.contact > .socials {
+    flex-direction: row;
+    left: 0;
+    width: 100%;
+    height: auto;
+    top: 15rem;
+}
+
+.contact .social-icon {
+    padding: 8px;
+}
+
+.contact .social-icon > svg {
+    width: 24px;
+    height: auto;
+}
+
+.contact .logo {
+    position: absolute;
+    z-index: 1;
+    top: 20rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5.8rem;
+}
+
+/* 
+    ====
+    Contact US - Responsive
+    ====
+*/
+
 @media only screen and (max-width:600px) {
     .contact > .left-sec {
-        margin-top: 4rem;
         width: 100%;
         left: 0;
         text-align: center;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .contact > .socials {
+        top: 15rem;
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .contact > .socials {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width:705px) {
+    .contact .logo {
+        top: 36.5rem;
     }
 }
