@@ -1,0 +1,18 @@
+{
+  "id": "gallery_on_home",
+  "type": "SharedSlice",
+  "name": "GalleryOnHome",
+  "description": "GalleryOnHome",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

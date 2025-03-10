@@ -507,6 +507,36 @@ type FooterSliceVariation = FooterSliceDefault;
 export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
 
 /**
+ * Default variation for GalleryOnHome Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GalleryOnHomeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *GalleryOnHome*
+ */
+type GalleryOnHomeSliceVariation = GalleryOnHomeSliceDefault;
+
+/**
+ * GalleryOnHome Shared Slice
+ *
+ * - **API ID**: `gallery_on_home`
+ * - **Description**: GalleryOnHome
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GalleryOnHomeSlice = prismic.SharedSlice<
+  "gallery_on_home",
+  GalleryOnHomeSliceVariation
+>;
+
+/**
  * Primary content in *Info → Default → Primary*
  */
 export interface InfoSliceDefaultPrimary {
@@ -651,6 +681,9 @@ declare module "@prismicio/client" {
       FooterSliceDefaultPrimary,
       FooterSliceVariation,
       FooterSliceDefault,
+      GalleryOnHomeSlice,
+      GalleryOnHomeSliceVariation,
+      GalleryOnHomeSliceDefault,
       InfoSlice,
       InfoSliceDefaultPrimary,
       InfoSliceImagedPrimary,

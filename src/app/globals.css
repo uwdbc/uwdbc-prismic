@@ -942,15 +942,19 @@ section.calendar {
     ====
 */
 
+@media only screen and (max-width:705px) {
+    .contact .logo {
+        top: 36.5rem;
+    }
+}
+
 @media only screen and (max-width:600px) {
     .contact > .left-sec {
         width: 100%;
         left: 0;
         text-align: center;
     }
-}
 
-@media only screen and (max-width:600px) {
     .contact > .socials {
         top: 15rem;
     }
@@ -959,11 +963,5 @@ section.calendar {
 @media only screen and (max-width:500px) {
     .contact > .socials {
         display: flex;
-    }
-}
-
-@media only screen and (max-width:705px) {
-    .contact .logo {
-        top: 36.5rem;
     }
 }

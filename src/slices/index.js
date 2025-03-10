@@ -7,5 +7,6 @@ export const components = {
   big_header: dynamic(() => import("./Hero")),
   calendar: dynamic(() => import("./Calendar")),
   footer: dynamic(() => import("./Footer")),
+  gallery_on_home: dynamic(() => import("./GalleryOnHome")),
   info: dynamic(() => import("./Info")),
 };
