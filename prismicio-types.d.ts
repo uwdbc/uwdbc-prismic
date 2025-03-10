@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type ExecPageDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Exec Page documents
+ */
+interface ExecPageDocumentData {
+  /**
+   * Slice Zone field in *Exec Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exec_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ExecPageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Exec Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: exec_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Exec Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: exec_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Exec Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exec_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Exec Page document from Prismic
+ *
+ * - **API ID**: `exec_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ExecPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ExecPageDocumentData>,
+    "exec_page",
+    Lang
+  >;
+
 type HomeDocumentDataSlicesSlice =
   | FooterSlice
   | InfoSlice
@@ -146,7 +211,10 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomeDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | ExecPageDocument
+  | HomeDocument
+  | SettingsDocument;
 
 /**
  * Primary content in *AboutUs → Default → Primary*
@@ -657,6 +725,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ExecPageDocument,
+      ExecPageDocumentData,
+      ExecPageDocumentDataSlicesSlice,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,

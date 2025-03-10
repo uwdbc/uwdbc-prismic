@@ -9,10 +9,10 @@
     --cur-bg: var(--light-black);
     --p-col: var(--white);
     --h-col: var(--gold);
-    background-color: var(--cur-bg);
     --font-Inter: "Inter", Arial, Helvetica, sans-serif; /*try not to use*/
     --font-Montserrat: "Montserrat", Arial, Helvetica, sans-serif;
     --font-Michroma: "Michroma", Arial, Helvetica, sans-serif;
+    background-color: var(--cur-bg);
 }
 
 body {
