@@ -4,6 +4,93 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *Album → Photos*
+ */
+export interface AlbumDocumentDataPhotosItem {
+  /**
+   * Photo field in *Album → Photos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: album.photos[].photo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  photo: prismic.ImageField<never>;
+}
+
+/**
+ * Content for Album documents
+ */
+interface AlbumDocumentData {
+  /**
+   * Album Name field in *Album*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: album.album_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  album_name: prismic.KeyTextField;
+
+  /**
+   * description field in *Album*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: album.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Background Image field in *Album*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: album.background_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Secondary Image field in *Album*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: album.secondary_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  secondary_image: prismic.ImageField<never>;
+
+  /**
+   * Photos field in *Album*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: album.photos[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  photos: prismic.GroupField<Simplify<AlbumDocumentDataPhotosItem>>;
+}
+
+/**
+ * Album document from Prismic
+ *
+ * - **API ID**: `album`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AlbumDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<AlbumDocumentData>, "album", Lang>;
+
 type ExecPageDocumentDataSlicesSlice = never;
 
 /**
@@ -70,6 +157,7 @@ export type ExecPageDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | GalleryOnHomeSlice
   | FooterSlice
   | InfoSlice
   | CalendarSlice
@@ -212,6 +300,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | AlbumDocument
   | ExecPageDocument
   | HomeDocument
   | SettingsDocument;
@@ -575,6 +664,48 @@ type FooterSliceVariation = FooterSliceDefault;
 export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
 
 /**
+ * Item in *GalleryOnHome → Default → Primary → Albums*
+ */
+export interface GalleryOnHomeSliceDefaultPrimaryAlbumsItem {
+  /**
+   * album field in *GalleryOnHome → Default → Primary → Albums*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_on_home.default.primary.albums[].album
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  album: prismic.ContentRelationshipField<"album">;
+}
+
+/**
+ * Primary content in *GalleryOnHome → Default → Primary*
+ */
+export interface GalleryOnHomeSliceDefaultPrimary {
+  /**
+   * Heading field in *GalleryOnHome → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_on_home.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Albums field in *GalleryOnHome → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_on_home.default.primary.albums[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  albums: prismic.GroupField<
+    Simplify<GalleryOnHomeSliceDefaultPrimaryAlbumsItem>
+  >;
+}
+
+/**
  * Default variation for GalleryOnHome Slice
  *
  * - **API ID**: `default`
@@ -583,7 +714,7 @@ export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
  */
 export type GalleryOnHomeSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<GalleryOnHomeSliceDefaultPrimary>,
   never
 >;
 
@@ -725,6 +856,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AlbumDocument,
+      AlbumDocumentData,
+      AlbumDocumentDataPhotosItem,
       ExecPageDocument,
       ExecPageDocumentData,
       ExecPageDocumentDataSlicesSlice,
@@ -753,6 +887,8 @@ declare module "@prismicio/client" {
       FooterSliceVariation,
       FooterSliceDefault,
       GalleryOnHomeSlice,
+      GalleryOnHomeSliceDefaultPrimaryAlbumsItem,
+      GalleryOnHomeSliceDefaultPrimary,
       GalleryOnHomeSliceVariation,
       GalleryOnHomeSliceDefault,
       InfoSlice,

@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "gallery_on_home": {
+              "type": "SharedSlice"
+            },
             "footer": {
               "type": "SharedSlice"
             },

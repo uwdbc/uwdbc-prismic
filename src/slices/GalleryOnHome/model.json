@@ -11,7 +11,37 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "albums": {
+          "type": "Group",
+          "config": {
+            "label": "Albums",
+            "repeat": true,
+            "fields": {
+              "album": {
+                "type": "Link",
+                "config": {
+                  "label": "album",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "album"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
       "items": {}
     }
   ]

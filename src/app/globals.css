@@ -965,3 +965,26 @@ section.calendar {
         display: flex;
     }
 }
+
+/* 
+    ====
+    GalleryOnHome
+    ====
+*/
+.gallaryOnHome {
+    height: calc(100vh + 5rem);
+    width: 100%;
+    font-family: var(--font-Montserrat);
+
+    position: relative;
+    background-color: cyan;
+    color: var(--gold);
+}
+
+.gallaryOnHome > h2 {
+    text-align: center;
+    position: relative;
+    padding-top: 4rem;
+    font-size: clamp(2rem, 4vw + 0.2rem, 4.8rem);
+    font-weight: 700;
+}
