@@ -2,6 +2,7 @@ import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { createClient } from "@/prismicio";
 import { isFilled } from "@prismicio/client";
+import clsx from "clsx";
 
 /**
  * @typedef {import("@prismicio/client").Content.GalleryOnHomeSlice} GalleryOnHomeSlice
@@ -43,9 +44,16 @@ const GalleryOnHome = async ({ slice }) => {
         <p>{curAlbum.data.description}</p>
         <a href="">Explore More</a>
       </div>
+
       <div className="sp">
         {albums.map(item => (
             <PrismicNextImage key={item.uid} field={item.data.secondary_image} />
+        ))}
+      </div>
+
+      <div className="balls">
+        {albums.map((item,i) => (
+          <button key={i} className={clsx(i==index && "selected")}></button>
         ))}
       </div>
     </section>

@@ -1062,6 +1062,29 @@ section.calendar {
     width: clamp(7rem, 13vw, 15rem);
 }
 
+.balls {
+    position: absolute;
+    bottom: 2rem;
+    right: 50%;
+    transform: translateX(50%);
+
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.balls > button {
+    background-color: #777777;
+    border-radius: 50%;
+    width: 0.7rem;
+    aspect-ratio: 1;
+}
+
+.balls > button.selected {
+    background-color: white;
+    width: 0.8rem;
+}
+
 @media only screen and (max-width:900px) {
     .gallaryOnHome > .sp {
         right: 0.8rem;
