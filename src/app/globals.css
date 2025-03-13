@@ -1012,7 +1012,7 @@ section.calendar {
 .gallaryOnHome > .albumInfo > h3 {
     font-family: var(--font-Montserrat);
     font-weight: 800;
-    font-size: 2.5rem;
+    font-size: clamp(1.6rem, 4vw + 0.4rem, 2.5rem);;
     line-height: 90%;
 }
 
@@ -1095,7 +1095,7 @@ section.calendar {
 
 button.direction {
     position: absolute;
-    right: 2rem;
+    right: 1rem;
     top: 50%;
     transform: translateY(-50%);
     border-radius: 50%;
@@ -1124,7 +1124,7 @@ button.direction > div {
 }
 
 button.direction.left {
-    left: 2rem;
+    left: 1rem;
     transform: rotateY(180deg);
 }
 
@@ -1136,15 +1136,23 @@ button.direction.left {
 
 @media only screen and (max-width:750px) {
     .gallaryOnHome {
-        height: calc(100vh + 25rem);
+        height: calc(100vh + 10rem);
     }
 
     .gallaryOnHome > .albumInfo {
-        top: 25%;
+        top: 15.5rem;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
         align-items: center;
         text-align: center;
+    }
+
+    .gallaryOnHome > .albumInfo > p {
+        margin-bottom: 2rem;
+    }
+
+    .gallaryOnHome > .albumInfo > a {
+        padding: 0.4rem 2rem;
     }
 
     .gallaryOnHome > .sp {
@@ -1152,7 +1160,8 @@ button.direction.left {
         width: 100%;
         justify-content: center;
         right: 0;
-        top: 34rem;
+        top: 26rem;
+        transform: none;
     }
 
     .gallaryOnHome > .sp > img {
@@ -1160,8 +1169,7 @@ button.direction.left {
     }
 
     button.direction {
-        right: 1rem;
-        top: 34rem;
+        top: calc(26rem + (0.9)*18vw);
     }
 
     button.direction.left {
