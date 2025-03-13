@@ -51,6 +51,14 @@ const GalleryOnHome = async ({ slice }) => {
         ))}
       </div>
 
+      <button className="direction">
+        <div></div>
+      </button>
+
+      <button className="left direction">
+        <div></div>
+      </button>
+
       <div className="balls">
         {albums.map((item,i) => (
           <button key={i} className={clsx(i==index && "selected")}></button>

@@ -1052,13 +1052,21 @@ section.calendar {
     object-position: center;
     border: 2px solid white;
     border-radius: 4%;
+    transition: all 0.3s ease-in;
+}
+
+.gallaryOnHome > .sp > img:hover {
+    transform: translateY(-2px);
+
 }
 
 .sp > img:nth-child(2) {
     width: clamp(8rem, 15.5vw, 17rem);
+    border: none;
 }
 
 .sp > img:nth-child(3) {
+    border: none;
     width: clamp(7rem, 13vw, 15rem);
 }
 
@@ -1069,7 +1077,7 @@ section.calendar {
     transform: translateX(50%);
 
     display: flex;
-    justify-content: center;
+    align-items: center;
     gap: 4px;
 }
 
@@ -1085,8 +1093,78 @@ section.calendar {
     width: 0.8rem;
 }
 
+button.direction {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    
+    width: 30px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in;
+}
+
+button.direction:hover {
+    background-color: rgba(187, 187, 187, 0.335);
+    backdrop-filter: blur(0.03rem);
+}
+
+button.direction > div {
+    content: '';
+    border-bottom: 2px solid #ffd100;
+    border-right: 2px solid #ffd100;
+    width: 12px;
+    aspect-ratio: 1;
+    display: block;
+    transform: translateX(-2px) rotate(315deg);
+}
+
+button.direction.left {
+    left: 2rem;
+    transform: rotateY(180deg);
+}
+
 @media only screen and (max-width:900px) {
     .gallaryOnHome > .sp {
         right: 0.8rem;
+    }
+}
+
+@media only screen and (max-width:750px) {
+    .gallaryOnHome {
+        height: calc(100vh + 25rem);
+    }
+
+    .gallaryOnHome > .albumInfo {
+        top: 25%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        align-items: center;
+        text-align: center;
+    }
+
+    .gallaryOnHome > .sp {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        right: 0;
+        top: 34rem;
+    }
+
+    .gallaryOnHome > .sp > img {
+        width: 25%;
+    }
+
+    button.direction {
+        right: 1rem;
+        top: 34rem;
+    }
+
+    button.direction.left {
+        left: 1rem;
     }
 }
