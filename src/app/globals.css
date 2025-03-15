@@ -1176,3 +1176,174 @@ button.direction.left {
         left: 1rem;
     }
 }
+
+/* 
+    ====
+    Coach Page
+    ====
+*/
+
+.coachPage {
+    margin-top: 10vh;
+    text-align: center;
+    padding: 60px 0;
+
+}
+
+.coachPage-title {
+    font-size: 3rem;
+    color: #ffd100; /* Yellow Title */
+    font-family: var(--font-Montserrat);
+    margin-bottom: 40px;
+    margin-top: 50px;
+}
+
+.coach-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 90vw;
+    margin: 0 auto;
+}
+
+.coach-card-horizontal {
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(255, 209, 0, 0.25);
+    overflow: hidden;
+    width: 95%; /* Increased width */
+    max-width: 1200px; /* Set max width for large screens */
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coach-card-horizontal:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(255, 209, 0, 0.35);
+}
+
+.coach-image-horizontal {
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.coach-text {
+    flex: 1;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.coach-name {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffd100;
+    margin-bottom: 15px;
+}
+
+.coach-role {
+    font-size: 1.2rem;
+    color: white;
+    line-height: 1.6;
+}
+
+
+/* 
+    ====
+    Exec Page
+    ====
+*/
+.execPage {
+
+    text-align: center;
+    padding: 40px 0;
+}
+
+.execPage h2 {
+    font-size: 2rem;
+    color: #ffd100; /* Yellow Title */
+    font-family: var(--font-Montserrat);
+    margin-bottom: 20px;
+}
+
+.execPage .card-container {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: start;
+}
+
+.execPage .exec-card {
+    background-color: #1a1a1a; /* Dark background */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(255, 209, 0, 0.2); /* Yellow glow */
+    overflow: hidden;
+    height: 350px;
+    width: 250px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.execPage .exec-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(255, 209, 0, 0.3);
+}
+
+.execPage .exec-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.execPage .exec-name-role {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    color: white;
+    padding: 10px;
+    z-index: 2;
+    text-align: left;
+}
+
+.execPage .exec-role {
+    font-family: var(--font-Montserrat);
+    font-size: 1rem;
+    font-weight: 500;
+    color: #FFD100; /* Yellow accent */
+    display: flex;
+    align-items: center;
+}
+
+.execPage .exec-role::before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background: #FFD100;
+    margin-right: 8px;
+}
+
+.execPage .exec-name {
+    font-family: var(--font-Montserrat);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 4px;
+}
