@@ -21,6 +21,7 @@ const CoachingTeam = ({ slice }) => {
             <PrismicNextImage
               field={item.coachimage}
               className="coach-image-horizontal"
+              alt=""
             />
             <div className="coach-text">
               <h3 className="coach-name">
