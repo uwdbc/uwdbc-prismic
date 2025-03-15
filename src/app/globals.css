@@ -1011,6 +1011,7 @@ section.calendar {
 
 .gallaryOnHome > .albumInfo > h3 {
     font-family: var(--font-Montserrat);
+    text-transform: capitalize;
     font-weight: 800;
     font-size: clamp(1.6rem, 4vw + 0.4rem, 2.5rem);;
     line-height: 90%;
@@ -1052,7 +1053,7 @@ section.calendar {
     object-position: center;
     border: 2px solid white;
     border-radius: 4%;
-    transition: all 0.3s ease-in;
+    transition: transform 0.3s ease-in;
 }
 
 .gallaryOnHome > .sp > img:hover {
@@ -1060,12 +1061,12 @@ section.calendar {
 
 }
 
-.sp > img:nth-child(2) {
+.sp >img.second {
     width: clamp(8rem, 15.5vw, 17rem);
     border: none;
 }
 
-.sp > img:nth-child(3) {
+.sp >img.third {
     border: none;
     width: clamp(7rem, 13vw, 15rem);
 }
@@ -1127,6 +1128,12 @@ button.direction.left {
     left: 1rem;
     transform: rotateY(180deg);
 }
+
+/* 
+    ====
+    GalleryOnHome - Mobile Version
+    ====
+*/
 
 @media only screen and (max-width:900px) {
     .gallaryOnHome > .sp {
