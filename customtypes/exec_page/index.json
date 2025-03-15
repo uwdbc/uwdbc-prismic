@@ -10,7 +10,14 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "coaching_team": {
+              "type": "SharedSlice"
+            },
+            "exec_page": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

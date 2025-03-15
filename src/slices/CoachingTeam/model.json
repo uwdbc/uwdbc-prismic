@@ -1,0 +1,63 @@
+{
+  "id": "coaching_team",
+  "type": "SharedSlice",
+  "name": "CoachingTeam",
+  "description": "CoachingTeam",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "coaches": {
+          "type": "Group",
+          "config": {
+            "label": "CoacheBio",
+            "repeat": true,
+            "fields": {
+              "coachimage": {
+                "type": "Image",
+                "config": {
+                  "label": "CoachImage",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "coachname": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "CoachName",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "coachbio": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "CoachBio",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

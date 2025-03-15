@@ -91,7 +91,7 @@ interface AlbumDocumentData {
 export type AlbumDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AlbumDocumentData>, "album", Lang>;
 
-type ExecPageDocumentDataSlicesSlice = never;
+type ExecPageDocumentDataSlicesSlice = CoachingTeamSlice | ExecPageSlice;
 
 /**
  * Content for Exec Page documents
@@ -551,6 +551,190 @@ export type CalendarSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *CoachingTeam → Default → Primary → CoacheBio*
+ */
+export interface CoachingTeamSliceDefaultPrimaryCoachesItem {
+  /**
+   * CoachImage field in *CoachingTeam → Default → Primary → CoacheBio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: coaching_team.default.primary.coaches[].coachimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  coachimage: prismic.ImageField<never>;
+
+  /**
+   * CoachName field in *CoachingTeam → Default → Primary → CoacheBio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: coaching_team.default.primary.coaches[].coachname
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  coachname: prismic.RichTextField;
+
+  /**
+   * CoachBio field in *CoachingTeam → Default → Primary → CoacheBio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: coaching_team.default.primary.coaches[].coachbio
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  coachbio: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *CoachingTeam → Default → Primary*
+ */
+export interface CoachingTeamSliceDefaultPrimary {
+  /**
+   * Title field in *CoachingTeam → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: coaching_team.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * CoacheBio field in *CoachingTeam → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: coaching_team.default.primary.coaches[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  coaches: prismic.GroupField<
+    Simplify<CoachingTeamSliceDefaultPrimaryCoachesItem>
+  >;
+}
+
+/**
+ * Default variation for CoachingTeam Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CoachingTeamSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CoachingTeamSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CoachingTeam*
+ */
+type CoachingTeamSliceVariation = CoachingTeamSliceDefault;
+
+/**
+ * CoachingTeam Shared Slice
+ *
+ * - **API ID**: `coaching_team`
+ * - **Description**: CoachingTeam
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CoachingTeamSlice = prismic.SharedSlice<
+  "coaching_team",
+  CoachingTeamSliceVariation
+>;
+
+/**
+ * Item in *ExecTeam → Default → Primary → execTeam*
+ */
+export interface ExecPageSliceDefaultPrimaryExecTeamItem {
+  /**
+   * execName field in *ExecTeam → Default → Primary → execTeam*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exec_page.default.primary.execTeam[].execName
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  execName: prismic.RichTextField;
+
+  /**
+   * execRole field in *ExecTeam → Default → Primary → execTeam*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exec_page.default.primary.execTeam[].execRole
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  execRole: prismic.RichTextField;
+
+  /**
+   * execImage field in *ExecTeam → Default → Primary → execTeam*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exec_page.default.primary.execTeam[].execImage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  execImage: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ExecTeam → Default → Primary*
+ */
+export interface ExecPageSliceDefaultPrimary {
+  /**
+   * Title field in *ExecTeam → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exec_page.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * execTeam field in *ExecTeam → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exec_page.default.primary.execTeam[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  execTeam: prismic.GroupField<
+    Simplify<ExecPageSliceDefaultPrimaryExecTeamItem>
+  >;
+}
+
+/**
+ * Default variation for ExecTeam Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ExecPageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ExecPageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ExecTeam*
+ */
+type ExecPageSliceVariation = ExecPageSliceDefault;
+
+/**
+ * ExecTeam Shared Slice
+ *
+ * - **API ID**: `exec_page`
+ * - **Description**: ExecPage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ExecPageSlice = prismic.SharedSlice<
+  "exec_page",
+  ExecPageSliceVariation
+>;
+
+/**
  * Item in *Footer → Default → Primary → Links to Social*
  */
 export interface FooterSliceDefaultPrimaryLinksToSocialItem {
@@ -881,6 +1065,16 @@ declare module "@prismicio/client" {
       CalendarSliceDefaultPrimary,
       CalendarSliceVariation,
       CalendarSliceDefault,
+      CoachingTeamSlice,
+      CoachingTeamSliceDefaultPrimaryCoachesItem,
+      CoachingTeamSliceDefaultPrimary,
+      CoachingTeamSliceVariation,
+      CoachingTeamSliceDefault,
+      ExecPageSlice,
+      ExecPageSliceDefaultPrimaryExecTeamItem,
+      ExecPageSliceDefaultPrimary,
+      ExecPageSliceVariation,
+      ExecPageSliceDefault,
       FooterSlice,
       FooterSliceDefaultPrimaryLinksToSocialItem,
       FooterSliceDefaultPrimary,
