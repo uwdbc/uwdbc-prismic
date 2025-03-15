@@ -23,14 +23,8 @@ const GalleryOnHome = ({ slice }) => {
   const [index, setIndex] = useState(0);
   const [albums, setAlbums] = useState([]);
 
-  function handleRight() {
-    setIndex(prev => (prev+1)%albums.length)
-  }
   function handleMove(newVal) {
     setIndex(newVal)
-  }
-  function handleLeft() {
-    setIndex(prev => (prev+albums.length-1) % albums.length)
   }
 
   useEffect(()=>{
