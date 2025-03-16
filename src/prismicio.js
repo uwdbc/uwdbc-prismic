@@ -27,7 +27,7 @@ const routes = [
   },
   {
     type: "gallery",
-    path: "gallery",
+    path: "/gallery",
   }
 ];
 
