@@ -13,6 +13,7 @@
     --font-Montserrat: "Montserrat", Arial, Helvetica, sans-serif;
     --font-Michroma: "Michroma", Arial, Helvetica, sans-serif;
     background-color: var(--cur-bg);
+    font-family: var(--font-Montserrat);
 }
 
 body {

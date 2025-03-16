@@ -9,8 +9,7 @@ const AlbumOnGallery = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for album_on_gallery (variation: {slice.variation})
-      Slices
+      <div>Shhs</div>
     </section>
   );
 };
