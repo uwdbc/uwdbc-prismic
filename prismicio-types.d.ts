@@ -159,6 +159,71 @@ export type ExecPageDocument<Lang extends string = string> =
     Lang
   >;
 
+type GalleryDocumentDataSlicesSlice = AlbumOnGallerySlice | HeaderSlice;
+
+/**
+ * Content for Gallery documents
+ */
+interface GalleryDocumentData {
+  /**
+   * Slice Zone field in *Gallery*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<GalleryDocumentDataSlicesSlice> /**
+   * Meta Title field in *Gallery*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: gallery.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Gallery*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: gallery.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Gallery*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Gallery document from Prismic
+ *
+ * - **API ID**: `gallery`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GalleryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<GalleryDocumentData>,
+    "gallery",
+    Lang
+  >;
+
 type HomeDocumentDataSlicesSlice =
   | GalleryOnHomeSlice
   | FooterSlice
@@ -305,6 +370,7 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AlbumDocument
   | ExecPageDocument
+  | GalleryDocument
   | HomeDocument
   | SettingsDocument;
 
@@ -382,6 +448,51 @@ type AboutUsSliceVariation = AboutUsSliceDefault;
 export type AboutUsSlice = prismic.SharedSlice<
   "about_us",
   AboutUsSliceVariation
+>;
+
+/**
+ * Primary content in *AlbumOnGallery → Default → Primary*
+ */
+export interface AlbumOnGallerySliceDefaultPrimary {
+  /**
+   * Albums field in *AlbumOnGallery → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: album_on_gallery.default.primary.albums
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  albums: prismic.ContentRelationshipField<"album">;
+}
+
+/**
+ * Default variation for AlbumOnGallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AlbumOnGallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AlbumOnGallerySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AlbumOnGallery*
+ */
+type AlbumOnGallerySliceVariation = AlbumOnGallerySliceDefault;
+
+/**
+ * AlbumOnGallery Shared Slice
+ *
+ * - **API ID**: `album_on_gallery`
+ * - **Description**: AlbumOnGallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AlbumOnGallerySlice = prismic.SharedSlice<
+  "album_on_gallery",
+  AlbumOnGallerySliceVariation
 >;
 
 /**
@@ -1101,6 +1212,9 @@ declare module "@prismicio/client" {
       ExecPageDocument,
       ExecPageDocumentData,
       ExecPageDocumentDataSlicesSlice,
+      GalleryDocument,
+      GalleryDocumentData,
+      GalleryDocumentDataSlicesSlice,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
@@ -1111,6 +1225,10 @@ declare module "@prismicio/client" {
       AboutUsSliceDefaultPrimary,
       AboutUsSliceVariation,
       AboutUsSliceDefault,
+      AlbumOnGallerySlice,
+      AlbumOnGallerySliceDefaultPrimary,
+      AlbumOnGallerySliceVariation,
+      AlbumOnGallerySliceDefault,
       BigHeaderSlice,
       BigHeaderSliceDefaultPrimaryLinksToSocialItem,
       BigHeaderSliceDefaultPrimary,

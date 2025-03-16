@@ -1,0 +1,30 @@
+{
+  "id": "album_on_gallery",
+  "type": "SharedSlice",
+  "name": "AlbumOnGallery",
+  "description": "AlbumOnGallery",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "albums": {
+          "type": "Link",
+          "config": {
+            "label": "Albums",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              "album"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

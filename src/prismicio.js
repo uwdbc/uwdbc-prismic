@@ -25,6 +25,10 @@ const routes = [
   	type: "exec_page",
   	path: "/exec_page",
   },
+  {
+    type: "gallery",
+    path: "gallery",
+  }
 ];
 
 /**
