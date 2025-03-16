@@ -20,9 +20,15 @@ const Header = ({ slice }) => {
             className="headerBackgroundImage"
           />
         </div>
-        <h1 className="headerTitle glow">
-          <PrismicRichText field={slice.primary.title} />
-        </h1>
+
+        <PrismicRichText
+          field={slice.primary.title}
+          components={{
+            heading1: ({ children }) => (
+              <h1 className="headerTitle glow">{children}</h1>
+            ),
+          }}
+        />
       </div>
     </section>
   );
