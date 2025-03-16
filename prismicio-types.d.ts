@@ -91,7 +91,10 @@ interface AlbumDocumentData {
 export type AlbumDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AlbumDocumentData>, "album", Lang>;
 
-type ExecPageDocumentDataSlicesSlice = CoachingTeamSlice | ExecPageSlice;
+type ExecPageDocumentDataSlicesSlice =
+  | HeaderSlice
+  | CoachingTeamSlice
+  | ExecPageSlice;
 
 /**
  * Content for Exec Page documents
@@ -920,6 +923,58 @@ export type GalleryOnHomeSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Header → Default → Primary*
+ */
+export interface HeaderSliceDefaultPrimary {
+  /**
+   * Header Image field in *Header → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.default.primary.header_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  header_image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Header → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Header Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeaderSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Header*
+ */
+type HeaderSliceVariation = HeaderSliceDefault;
+
+/**
+ * Header Shared Slice
+ *
+ * - **API ID**: `header`
+ * - **Description**: Header
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderSlice = prismic.SharedSlice<"header", HeaderSliceVariation>;
+
+/**
  * Primary content in *Info → Default → Primary*
  */
 export interface InfoSliceDefaultPrimary {
@@ -1085,6 +1140,10 @@ declare module "@prismicio/client" {
       GalleryOnHomeSliceDefaultPrimary,
       GalleryOnHomeSliceVariation,
       GalleryOnHomeSliceDefault,
+      HeaderSlice,
+      HeaderSliceDefaultPrimary,
+      HeaderSliceVariation,
+      HeaderSliceDefault,
       InfoSlice,
       InfoSliceDefaultPrimary,
       InfoSliceImagedPrimary,
