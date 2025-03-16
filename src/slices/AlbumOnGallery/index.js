@@ -1,15 +1,28 @@
+import { createClient } from "@/prismicio";
+import { PrismicNextImage } from "@prismicio/next";
 /**
  * @typedef {import("@prismicio/client").Content.AlbumOnGallerySlice} AlbumOnGallerySlice
  * @typedef {import("@prismicio/react").SliceComponentProps<AlbumOnGallerySlice>} AlbumOnGalleryProps
  * @param {AlbumOnGalleryProps}
  */
-const AlbumOnGallery = ({ slice }) => {
+const AlbumOnGallery = async ({ slice }) => {
+  const client = createClient();
+
+  const album = await client.getByUID("album", slice.primary.albums.uid)
+  const {data} = album;
+  console.log(data)
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="albumContainer"
     >
-      <div>Shhs</div>
+      <h2>{data.album_name}</h2>
+      <div className="photoContainer">
+        {data.photos.map((item, index) => (
+          <PrismicNextImage key={index} field={item.photo} />
+        ))}
+      </div>
     </section>
   );
 };
