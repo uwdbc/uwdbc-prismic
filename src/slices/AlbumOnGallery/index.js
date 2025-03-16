@@ -10,7 +10,6 @@ const AlbumOnGallery = async ({ slice }) => {
 
   const album = await client.getByUID("album", slice.primary.albums.uid)
   const {data} = album;
-  console.log(data)
   return (
     <section
       data-slice-type={slice.slice_type}
