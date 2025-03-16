@@ -12,14 +12,14 @@ const Header = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="headerContainer"
     >
-      <div className="headerContainer">
-        <div className="overlay">
-          <PrismicNextImage
-            field={slice.primary.header_image}
-            className="headerBackgroundImage"
-          />
-        </div>
+        <div className="overlay"></div>
+        <PrismicNextImage
+          field={slice.primary.header_image}
+          className="headerBackgroundImage"
+        />
+        
 
         <PrismicRichText
           field={slice.primary.title}
@@ -29,7 +29,6 @@ const Header = ({ slice }) => {
             ),
           }}
         />
-      </div>
     </section>
   );
 };
