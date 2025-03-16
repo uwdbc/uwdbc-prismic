@@ -12,9 +12,13 @@ const CoachingTeam = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="coachPage"
     >
-      <h2 className="coachPage-title">
-        <PrismicRichText field={slice.primary.title} components={components} />
-      </h2>
+      <PrismicRichText
+        field={slice.primary.title}
+        components={{
+          heading2: ({ children }) => <h2>{children}</h2>,
+        }}
+      />
+
       <div className="coach-container">
         {slice.primary.coaches.map((item, index) => (
           <div key={index} className="coach-card-horizontal">
