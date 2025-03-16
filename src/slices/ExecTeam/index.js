@@ -18,8 +18,9 @@ const ExecPage = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="execPage"
     >
-      <PrismicRichText field={slice.primary.title} components={components} />
-
+      <h2 className="execPage-title">
+        <PrismicRichText field={slice.primary.title} components={components} />
+      </h2>
       <div className="card-container">
         {slice.primary.execTeam.map((item) => (
           <div className="exec-card">

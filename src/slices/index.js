@@ -10,5 +10,6 @@ export const components = {
   exec_page: dynamic(() => import("./ExecTeam")),
   footer: dynamic(() => import("./Footer")),
   gallery_on_home: dynamic(() => import("./GalleryOnHome")),
+  header: dynamic(() => import("./Header")),
   info: dynamic(() => import("./Info")),
 };

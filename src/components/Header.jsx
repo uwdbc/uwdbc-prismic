@@ -6,41 +6,41 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 export default function Header() {
-    const [menuButtonClasses, setMenuButtonClasses] = useState("Menu-Button");
-    const [data, setdata] = useState(undefined); // Store fetched data
+  const [menuButtonClasses, setMenuButtonClasses] = useState("Menu-Button");
+  const [data, setdata] = useState(undefined); // Store fetched data
 
-    useEffect(() => {
-        // Scroll event listener
-        const handleScroll = () => {
-        if (window.scrollY >= 80) {
-            setMenuButtonClasses(clsx("Menu-Button", "shaded"));
-        } else {
-            setMenuButtonClasses(clsx("Menu-Button"));
-        }
-        };
+  useEffect(() => {
+    // Scroll event listener
+    const handleScroll = () => {
+      if (window.scrollY >= 80) {
+        setMenuButtonClasses(clsx("Menu-Button", "shaded"));
+      } else {
+        setMenuButtonClasses(clsx("Menu-Button"));
+      }
+    };
 
-        window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-        return () => {
-        window.removeEventListener("scroll", handleScroll);
-        };
-    }, []); // Runs once on mount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // Runs once on mount
 
-    useEffect(() => {
-        // Fetch data from Prismic
-        const fetchData = async () => {
-        const client = createClient();
-        const response = await client.getSingle("settings");
-        setdata(response.data);
-        };
+  useEffect(() => {
+    // Fetch data from Prismic
+    const fetchData = async () => {
+      const client = createClient();
+      const response = await client.getSingle("settings");
+      setdata(response.data);
+    };
 
-        fetchData();
-    }, []); // Runs once on mount
-    
-    return (
-        <header>
-            <div className="right-side">
-                {/* <label 
+    fetchData();
+  }, []); // Runs once on mount
+
+  return (
+    <header>
+      <div className="right-side">
+        {/* <label 
                 htmlFor="themeToggle"
                 className="themeToggle st-sunMoonThemeToggleBtn"
                 type="checkbox" >
@@ -48,11 +48,11 @@ export default function Header() {
                     <ThemeToggle />
                 </label> */}
 
-                <button className={menuButtonClasses}>
-                    <span>Menu</span>
-                    <Hamburger />
-                </button>
-            </div>
-        </header>
-    )
+        <button className={menuButtonClasses}>
+          <span>Menu</span>
+          <Hamburger />
+        </button>
+      </div>
+    </header>
+  );
 }

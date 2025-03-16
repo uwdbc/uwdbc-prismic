@@ -1,0 +1,36 @@
+{
+  "id": "header",
+  "type": "SharedSlice",
+  "name": "Header",
+  "description": "Header",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "header_image": {
+          "type": "Image",
+          "config": {
+            "label": "Header Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,heading4,heading5"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

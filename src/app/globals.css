@@ -21,6 +21,19 @@ body {
     align-items: center;
 }
 
+h1 {
+    font-size: 3rem;
+    color: #ffd100; /* Yellow Title */
+    font-family: var(--font-Montserrat);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #ffd100; /* Yellow Title */
+    font-family: var(--font-Montserrat);
+    margin-bottom: 10px;
+}
 /* 
     ====
     Hero
@@ -1184,6 +1197,41 @@ button.direction.left {
     }
 }
 
+/*
+    ====
+    Header
+    ====
+*/
+
+.headerContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    
+}
+.headerBackgroundImage {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    object-fit: cover; /* Ensure the image fits and crops itself within the container */
+}
+
+.headerTitle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: var(--font-Montserrat);
+}
 /* 
     ====
     Coach Page
@@ -1194,16 +1242,10 @@ button.direction.left {
     margin-top: 10vh;
     text-align: center;
     padding: 60px 0;
-
+    margin-bottom: 0;
 }
 
-.coachPage-title {
-    font-size: 3rem;
-    color: #ffd100; /* Yellow Title */
-    font-family: var(--font-Montserrat);
-    margin-bottom: 40px;
-    margin-top: 50px;
-}
+
 
 .coach-container {
     display: flex;
@@ -1217,9 +1259,9 @@ button.direction.left {
 .coach-card-horizontal {
     display: flex;
     align-items: center;
-    background-color: #1a1a1a;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(255, 209, 0, 0.25);
+
+    
+   
     overflow: hidden;
     width: 95%; /* Increased width */
     max-width: 1200px; /* Set max width for large screens */
@@ -1235,7 +1277,7 @@ button.direction.left {
 .coach-image-horizontal {
     width: 300px;
     height: 300px;
-    border-radius: 15px;
+   
     object-fit: cover;
     flex-shrink: 0;
 }
@@ -1266,35 +1308,42 @@ button.direction.left {
     ====
 */
 .execPage {
-
     text-align: center;
     padding: 40px 0;
 }
 
-.execPage h2 {
-    font-size: 2rem;
-    color: #ffd100; /* Yellow Title */
-    font-family: var(--font-Montserrat);
-    margin-bottom: 20px;
-}
+
 
 .execPage .card-container {
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     max-width: 60vw;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
     justify-content: center;
     align-items: start;
 }
 
+/* Ensure a maximum of three columns */
+@media (min-width: 800px) {
+    .execPage .card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 799px) {
+    .execPage .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
 .execPage .exec-card {
     background-color: #1a1a1a; /* Dark background */
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(255, 209, 0, 0.2); /* Yellow glow */
+    box-shadow: 0 8px 16px rgba(255, 209, 0, 0.2); 
     overflow: hidden;
     height: 350px;
     width: 250px;
@@ -1323,7 +1372,7 @@ button.direction.left {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.0)); /* Dark to light gradient */
     color: white;
     padding: 10px;
     z-index: 2;
