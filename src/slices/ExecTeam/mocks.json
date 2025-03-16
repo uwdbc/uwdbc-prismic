@@ -132,9 +132,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading1",
+						"type": "paragraph",
 						"content": {
-							"text": "Minute"
+							"text": "Non magna labore exercitation esse magna ipsum aliqua sint magna ad nulla."
 						}
 					}
 				]
