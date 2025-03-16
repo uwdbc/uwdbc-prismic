@@ -9,6 +9,8 @@ import { PrismicNextImage } from "@prismicio/next";
 
 const components = {
   heading1: ({ children }) => <h1 className="s-title">{children}</h1>,
+  paragraph:({children}) => <p className="exec-role">{children}</p>,
+  heading5: ({children}) => <h5 className="exec-name">{children}</h5>
 };
 
 const ExecPage = ({ slice }) => {
@@ -33,15 +35,10 @@ const ExecPage = ({ slice }) => {
               className="exec-image"
               alt=""
             />
+            
             <div className="exec-name-role">
-              <div className="exec-role">
-                <PrismicRichText field={item.execRole} />
-              </div>
-              <PrismicRichText
-                field={item.execName}
-                className="exec-name"
-                components={components}
-              />
+              <PrismicRichText field={item.execRole} components={components}/>
+              <PrismicRichText field={item.execName} components={components}/>
             </div>
           </div>
         ))}

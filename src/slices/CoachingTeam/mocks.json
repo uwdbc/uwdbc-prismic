@@ -41,9 +41,9 @@
 									"__TYPE__": "StructuredTextContent",
 									"value": [
 										{
-											"type": "paragraph",
+											"type": "heading3",
 											"content": {
-												"text": "Ullamco magna Lorem Lorem pariatur ea minim sunt enim ullamco fugiat ad enim et. Nostrud adipisicing consectetur consectetur quis ea occaecat nulla qui ea laborum incididunt est qui cupidatat. Id magna sint ea excepteur anim nostrud aliquip incididunt aliquip eu Lorem pariatur."
+												"text": "Method"
 											}
 										}
 									]
@@ -57,7 +57,7 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Commodo laborum occaecat ea sit. Aliquip nisi excepteur esse incididunt cupidatat do et culpa cillum tempor culpa commodo Lorem. Aute excepteur incididunt ut ad consectetur ullamco ullamco dolor commodo."
+												"text": "Minim sunt ea laboris sint velit."
 											}
 										}
 									]

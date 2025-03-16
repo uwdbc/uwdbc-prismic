@@ -33,7 +33,7 @@
                   "label": "execName",
                   "placeholder": "",
                   "allowTargetBlank": true,
-                  "multi": "heading5,strong"
+                  "multi": "heading5"
                 }
               },
               "execRole": {

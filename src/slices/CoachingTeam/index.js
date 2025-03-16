@@ -3,6 +3,8 @@ import { PrismicNextImage } from "@prismicio/next";
 
 const components = {
   heading1: ({ children }) => <h1 className="s-title">{children}</h1>,
+  heading3: ({children}) => <h3 className="coach-name">{children}</h3>,
+  paragraph: ({children}) => <p className="coach-role">{children}</p>
 };
 
 const CoachingTeam = ({ slice }) => {
@@ -28,12 +30,8 @@ const CoachingTeam = ({ slice }) => {
               alt=""
             />
             <div className="coach-text">
-              <h3 className="coach-name">
-                <PrismicRichText field={item.coachname} />
-              </h3>
-              <p className="coach-role">
-                <PrismicRichText field={item.coachbio} />
-              </p>
+              <PrismicRichText field={item.coachname} components={components}/>
+              <PrismicRichText field={item.coachbio} components={components}/>
             </div>
           </div>
         ))}
