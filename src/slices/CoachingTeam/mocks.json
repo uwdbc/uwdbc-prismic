@@ -1,0 +1,84 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"coaches": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"coachimage",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f",
+										"width": 6597,
+										"height": 4398
+									},
+									"url": "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f",
+									"width": 6597,
+									"height": 4398,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"coachname",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ullamco magna Lorem Lorem pariatur ea minim sunt enim ullamco fugiat ad enim et. Nostrud adipisicing consectetur consectetur quis ea occaecat nulla qui ea laborum incididunt est qui cupidatat. Id magna sint ea excepteur anim nostrud aliquip incididunt aliquip eu Lorem pariatur."
+											}
+										}
+									]
+								}
+							],
+							[
+								"coachbio",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Commodo laborum occaecat ea sit. Aliquip nisi excepteur esse incididunt cupidatat do et culpa cillum tempor culpa commodo Lorem. Aute excepteur incididunt ut ad consectetur ullamco ullamco dolor commodo."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Dolor quis aute laboris ex et enim velit."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

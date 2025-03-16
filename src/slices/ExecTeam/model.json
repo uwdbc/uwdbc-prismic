@@ -1,0 +1,63 @@
+{
+  "id": "exec_page",
+  "type": "SharedSlice",
+  "name": "ExecTeam",
+  "description": "ExecPage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "execTeam": {
+          "type": "Group",
+          "config": {
+            "label": "",
+            "repeat": true,
+            "fields": {
+              "execName": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "execName",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading5,strong"
+                }
+              },
+              "execRole": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "execRole",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "execImage": {
+                "type": "Image",
+                "config": {
+                  "label": "execImage",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
