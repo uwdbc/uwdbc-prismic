@@ -831,7 +831,7 @@ section.calendar {
 
 /* 
     ====
-    Contact US
+    Contact US - Footer
     ====
 */
 
@@ -979,6 +979,34 @@ section.calendar {
     .contact > .socials {
         display: flex;
     }
+}
+
+/* 
+    ====
+    Contact US(Footer) - Small
+    ====
+*/
+
+footer.small {
+    height: 5.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-inline: 2.3rem;
+    background-color: black;
+    box-shadow: 0px 0px 15px #4f4f4fad;
+}
+
+footer.small > .socials {
+    flex-direction: row;
+    height: auto;
+    position: relative;
+}
+
+footer.small img {
+    height: 3rem;
+    width: auto;
 }
 
 /* 
