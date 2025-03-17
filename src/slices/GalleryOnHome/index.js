@@ -58,7 +58,7 @@ const GalleryOnHome = ({ slice }) => {
       <div className="albumInfo">
         <h3 className="glow">{curAlbum.data.album_name}</h3>
         <p>{curAlbum.data.description}</p>
-        <a href="">Explore More</a>
+        <a href={`/gallery/#${curAlbum.uid}`}>Explore More</a>
       </div>
 
       <div className="sp">
