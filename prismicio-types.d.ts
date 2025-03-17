@@ -159,7 +159,10 @@ export type ExecPageDocument<Lang extends string = string> =
     Lang
   >;
 
-type GalleryDocumentDataSlicesSlice = AlbumOnGallerySlice | HeaderSlice;
+type GalleryDocumentDataSlicesSlice =
+  | FooterSlice
+  | AlbumOnGallerySlice
+  | HeaderSlice;
 
 /**
  * Content for Gallery documents
@@ -878,6 +881,35 @@ export interface FooterSliceDefaultPrimaryLinksToSocialItem {
 }
 
 /**
+ * Item in *Footer → Small → Primary → Links to Social*
+ */
+export interface FooterSliceSmallPrimaryLinksToSocialItem {
+  /**
+   * link field in *Footer → Small → Primary → Links to Social*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.small.primary.links_to_social[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * link type field in *Footer → Small → Primary → Links to Social*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Instagram
+   * - **API ID Path**: footer.small.primary.links_to_social[].link_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  link_type: prismic.SelectField<
+    "Instagram" | "Discord" | "Email" | "Linktree" | "Membership",
+    "filled"
+  >;
+}
+
+/**
  * Primary content in *Footer → Default → Primary*
  */
 export interface FooterSliceDefaultPrimary {
@@ -948,9 +980,39 @@ export type FooterSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Footer → Small → Primary*
+ */
+export interface FooterSliceSmallPrimary {
+  /**
+   * Links to Social field in *Footer → Small → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.small.primary.links_to_social[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links_to_social: prismic.GroupField<
+    Simplify<FooterSliceSmallPrimaryLinksToSocialItem>
+  >;
+}
+
+/**
+ * Small variation for Footer Slice
+ *
+ * - **API ID**: `small`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSliceSmall = prismic.SharedSliceVariation<
+  "small",
+  Simplify<FooterSliceSmallPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Footer*
  */
-type FooterSliceVariation = FooterSliceDefault;
+type FooterSliceVariation = FooterSliceDefault | FooterSliceSmall;
 
 /**
  * Footer Shared Slice
@@ -1251,8 +1313,11 @@ declare module "@prismicio/client" {
       FooterSlice,
       FooterSliceDefaultPrimaryLinksToSocialItem,
       FooterSliceDefaultPrimary,
+      FooterSliceSmallPrimaryLinksToSocialItem,
+      FooterSliceSmallPrimary,
       FooterSliceVariation,
       FooterSliceDefault,
+      FooterSliceSmall,
       GalleryOnHomeSlice,
       GalleryOnHomeSliceDefaultPrimaryAlbumsItem,
       GalleryOnHomeSliceDefaultPrimary,

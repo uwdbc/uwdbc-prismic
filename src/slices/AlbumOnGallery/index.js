@@ -15,6 +15,7 @@ const AlbumOnGallery = async ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="albumContainer"
+      id={album.uid}
     >
       <h2>{data.album_name}</h2>
       <div className="photoContainer">

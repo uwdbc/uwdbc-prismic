@@ -62,8 +62,8 @@
 							[
 								"link",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "8112d2c6-9b18-4e7f-bdff-bbe70d361235",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
 										"url": "https://slicemachine.dev"
@@ -84,5 +84,46 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "small",
+		"primary": {
+			"links_to_social": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "cf7bb2f2-df1e-4f7f-9f7d-13fb0c2192a2",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
+									}
+								}
+							],
+							[
+								"link_type",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Instagram",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

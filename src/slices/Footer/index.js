@@ -27,6 +27,8 @@ const Footer = async ({ slice }) => {
   const data = page.data;
 
   return (
+    <>{slice.variation == "default" ? 
+      //Default Footer
     <footer
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
@@ -67,7 +69,29 @@ const Footer = async ({ slice }) => {
         <PrismicNextImage field={data.website_logo} className="logo"/>
       </a>
 
+    </footer> :
+    //Small Footer 
+    <footer
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      id="contact-us"
+      className="small"
+    >
+      <a href="/">
+        <PrismicNextImage field={data.website_logo} className="logo"/>
+      </a>
+
+      <p>Dragon Boat © {new Date().getFullYear()}</p>
+
+      <div className="socials">
+        {slice.primary.links_to_social && slice.primary.links_to_social.map((item, index) => (
+          <PrismicNextLink field={item.link} key={index} className="social">
+            <div className="social-icon">{social_linker[item.link_type]}</div>  
+          </PrismicNextLink>
+        ))}
+      </div>
     </footer>
+  }</>
   );
 };
 

@@ -82,6 +82,52 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "small",
+      "name": "Small",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "links_to_social": {
+          "type": "Group",
+          "config": {
+            "label": "Links to Social",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": false,
+                  "allowText": false,
+                  "repeat": false
+                }
+              },
+              "link_type": {
+                "type": "Select",
+                "config": {
+                  "label": "link type",
+                  "placeholder": "",
+                  "options": [
+                    "Instagram",
+                    "Discord",
+                    "Email",
+                    "Linktree",
+                    "Membership"
+                  ],
+                  "default_value": "Instagram"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
