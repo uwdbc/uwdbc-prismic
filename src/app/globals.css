@@ -465,7 +465,7 @@ h2 {
 */
 
 .site-logo {
-    width: 5rem;
+    width: clamp(4rem, 14vw, 5rem);
     position: absolute;
     top: 1.2rem;
     left: 3rem;
@@ -497,6 +497,16 @@ h2 {
     Header - Responsive
     ====
 */
+
+@media only screen and (max-width: 550px) {
+    .Menu-Button {
+        right: 1rem;
+    }
+
+    .site-logo {
+        left: 1rem;
+    }
+}
 
 @media only screen and (max-width: 450px) {
     .Menu-Button > span {
@@ -996,17 +1006,41 @@ footer.small {
     padding-inline: 2.3rem;
     background-color: black;
     box-shadow: 0px 0px 15px #4f4f4fad;
+    text-align: center;
+}
+
+footer.small > p {
+    color: #b9b9b9;
 }
 
 footer.small > .socials {
     flex-direction: row;
     height: auto;
     position: relative;
+    right: 0;
 }
 
 footer.small img {
     height: 3rem;
     width: auto;
+}
+
+footer.small .social-icon {
+    background-color: var(--gold);
+}
+
+footer.small .social-icon > svg path {
+    fill: black;
+}
+
+@media only screen and (max-width:500px) {
+    footer.small {
+        justify-content: center;
+    }
+
+    footer.small a {
+        display: none;
+    }
 }
 
 /* 
@@ -1263,7 +1297,7 @@ button.direction.left {
     text-align: center;
     z-index: 2;
    
-    font-size: 3rem;
+    font-size: clamp(1rem, 9vw, 3rem);
     font-weight: bold;
     font-family: var(--font-Montserrat);
 }
