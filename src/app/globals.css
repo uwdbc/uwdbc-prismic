@@ -1512,3 +1512,45 @@ button.direction.left {
     flex-grow: 1;
     flex-shrink: 1;
 }
+
+/* 
+    ====
+    Merch
+    ====
+*/
+
+.merchPhotos {
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 4rem;
+}
+
+.merchPhotos > h2 {
+    font-weight: 500;
+    text-align: center;
+}
+
+.merchPhotos > .photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.photos > img {
+    height: 20rem;
+    width: auto;
+}
+
+@media only screen and (max-width:500px) {
+    .photos > img {
+        width: 80%;
+        height: auto;
+    }
+}
