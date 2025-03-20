@@ -1,3 +1,6 @@
+import { PrismicRichText } from "@prismicio/react";
+import { PrismicNextImage } from "@prismicio/next";
+
 /**
  * @typedef {import("@prismicio/client").Content.MerchPhotosSlice} MerchPhotosSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<MerchPhotosSlice>} MerchPhotosProps
@@ -8,9 +11,14 @@ const MerchPhotos = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="merchPhotos"
     >
-      Placeholder component for merch_photos (variation: {slice.variation})
-      Slices
+      <PrismicRichText field={slice.primary.heading} />
+      <div className="photos">
+        {slice.primary.photos.map((item, idx) => (
+          <PrismicNextImage key={idx} field={item.image} />
+        ))}
+      </div>
     </section>
   );
 };
