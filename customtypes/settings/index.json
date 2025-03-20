@@ -35,6 +35,14 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "bg_icon": {
+        "type": "Image",
+        "config": {
+          "label": "bg_icon",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

@@ -416,6 +416,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   website_logo: prismic.ImageField<never>;
+
+  /**
+   * bg_icon field in *settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.bg_icon
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bg_icon: prismic.ImageField<never>;
 }
 
 /**
@@ -447,7 +458,7 @@ export type AllDocumentTypes =
  */
 export interface AboutUsSliceDefaultPrimary {
   /**
-   * Header field in *AboutUs → Default → Primary*
+   * header field in *AboutUs → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*

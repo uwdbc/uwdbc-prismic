@@ -3,17 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"header": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Treated"
-						}
-					}
-				]
-			},
 			"paragraph": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -33,6 +22,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "key",
 				"type": "Text"
+			},
+			"header": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Track"
+						}
+					}
+				]
 			}
 		},
 		"items": []
