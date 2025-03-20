@@ -28,6 +28,10 @@ const routes = [
   {
     type: "gallery",
     path: "/gallery",
+  },
+  {
+    type: "merch",
+    path: "/merch"
   }
 ];
 

@@ -13,4 +13,5 @@ export const components = {
   gallery_on_home: dynamic(() => import("./GalleryOnHome")),
   header: dynamic(() => import("./Header")),
   info: dynamic(() => import("./Info")),
+  merch_photos: dynamic(() => import("./MerchPhotos")),
 };

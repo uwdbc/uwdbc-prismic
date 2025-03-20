@@ -305,6 +305,70 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
+type MerchDocumentDataSlicesSlice =
+  | MerchPhotosSlice
+  | FooterSlice
+  | HeaderSlice;
+
+/**
+ * Content for Merch documents
+ */
+interface MerchDocumentData {
+  /**
+   * Slice Zone field in *Merch*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: merch.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<MerchDocumentDataSlicesSlice> /**
+   * Meta Title field in *Merch*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: merch.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Merch*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: merch.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Merch*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: merch.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Merch document from Prismic
+ *
+ * - **API ID**: `merch`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MerchDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<MerchDocumentData>, "merch", Lang>;
+
 /**
  * Content for settings documents
  */
@@ -375,6 +439,7 @@ export type AllDocumentTypes =
   | ExecPageDocument
   | GalleryDocument
   | HomeDocument
+  | MerchDocument
   | SettingsDocument;
 
 /**
@@ -1247,6 +1312,78 @@ type InfoSliceVariation = InfoSliceDefault | InfoSliceImaged;
  */
 export type InfoSlice = prismic.SharedSlice<"info", InfoSliceVariation>;
 
+/**
+ * Item in *MerchPhotos → Default → Primary → photos*
+ */
+export interface MerchPhotosSliceDefaultPrimaryPhotosItem {
+  /**
+   * Image field in *MerchPhotos → Default → Primary → photos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: merch_photos.default.primary.photos[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *MerchPhotos → Default → Primary*
+ */
+export interface MerchPhotosSliceDefaultPrimary {
+  /**
+   * Heading field in *MerchPhotos → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: merch_photos.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * photos field in *MerchPhotos → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: merch_photos.default.primary.photos[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  photos: prismic.GroupField<
+    Simplify<MerchPhotosSliceDefaultPrimaryPhotosItem>
+  >;
+}
+
+/**
+ * Default variation for MerchPhotos Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MerchPhotosSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MerchPhotosSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MerchPhotos*
+ */
+type MerchPhotosSliceVariation = MerchPhotosSliceDefault;
+
+/**
+ * MerchPhotos Shared Slice
+ *
+ * - **API ID**: `merch_photos`
+ * - **Description**: MerchPhotos
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MerchPhotosSlice = prismic.SharedSlice<
+  "merch_photos",
+  MerchPhotosSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1280,6 +1417,9 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      MerchDocument,
+      MerchDocumentData,
+      MerchDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
@@ -1333,6 +1473,11 @@ declare module "@prismicio/client" {
       InfoSliceVariation,
       InfoSliceDefault,
       InfoSliceImaged,
+      MerchPhotosSlice,
+      MerchPhotosSliceDefaultPrimaryPhotosItem,
+      MerchPhotosSliceDefaultPrimary,
+      MerchPhotosSliceVariation,
+      MerchPhotosSliceDefault,
     };
   }
 }
