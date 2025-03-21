@@ -5,6 +5,7 @@ import Instagram from "/public/Instagram";
 import Linktree from "/public/Linktree";
 import Membership from "/public/Membership";
 import Email from "../../../public/Email";
+import Link from "next/link";
 
 /**
  * @typedef {import("@prismicio/client").Content.BigHeaderSlice} BigHeaderSlice
@@ -38,12 +39,12 @@ const Hero = ({ slice }) => {
       <div className="home-content">
         <PrismicRichText field={slice.primary.header} components={components} />
         <div className="btn-container">
-          <a href="#about" className="btn">
+          <Link href="#about" className="btn">
             About Us
-          </a>
-          <a href="#contact-us" className="btn">
+          </Link>
+          <Link href="#contact-us" className="btn">
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -58,9 +59,9 @@ const Hero = ({ slice }) => {
       </div>
       <section className="bottom-hero">
         <div className="slider"></div>
-        <a className="home-content__scroll" href="#about">
+        <Link className="home-content__scroll" href="#about">
           <span>Scroll Down</span>
-        </a>
+        </Link>
       </section>
     </section>
   );

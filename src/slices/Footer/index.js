@@ -7,6 +7,7 @@ import Instagram from "/public/Instagram";
 import Linktree from "/public/Linktree";
 import Membership from "/public/Membership";
 import Email from "/public/Email";
+import Link from "next/link";
 
 const social_linker = {
   "Discord": <Discord />,
@@ -53,7 +54,7 @@ const Footer = async ({ slice }) => {
 
         <div>
           <h6>Email Us At</h6>
-          <a href={`mailto:${slice.primary.email}`}>{slice.primary.email}</a>
+          <a href={`mailto:${slice.primary.email}`} target="blank">{slice.primary.email}</a>
         </div>
       </div>
 
@@ -65,9 +66,9 @@ const Footer = async ({ slice }) => {
         ))}
       </div>
 
-      <a href="/">
+      <Link href="/">
         <PrismicNextImage field={data.website_logo} className="logo"/>
-      </a>
+      </Link>
 
     </footer> :
     //Small Footer 
@@ -77,9 +78,9 @@ const Footer = async ({ slice }) => {
       id="contact-us"
       className="small"
     >
-      <a href="/">
+      <Link href="/">
         <PrismicNextImage field={data.website_logo} className="logo"/>
-      </a>
+      </Link>
 
       <p>Dragon Boat © {new Date().getFullYear()}</p>
 

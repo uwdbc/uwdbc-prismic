@@ -5,6 +5,7 @@ import { createClient } from "@/prismicio";
 import { isFilled } from "@prismicio/client";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
+import Link from "next/link";
 
 /**
  * @typedef {import("@prismicio/client").Content.GalleryOnHomeSlice} GalleryOnHomeSlice
@@ -58,7 +59,7 @@ const GalleryOnHome = ({ slice }) => {
       <div className="albumInfo">
         <h3 className="glow">{curAlbum.data.album_name}</h3>
         <p>{curAlbum.data.description}</p>
-        <a href={`/gallery/#${curAlbum.uid}`}>Explore More</a>
+        <Link href={`/gallery/#${curAlbum.uid}`}>Explore More</Link>
       </div>
 
       <div className="sp">
