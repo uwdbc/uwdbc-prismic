@@ -1107,7 +1107,7 @@ footer.small .social-icon > svg path {
     opacity: 0.8;
 }
 
-.gallaryOnHome > h2 {
+.gallaryOnHome > a > h2 {
     text-align: center;
     position: relative;
     padding-top: 4rem;
