@@ -24,6 +24,11 @@
 						}
 					}
 				]
+			},
+			"bg_icon_pos": {
+				"__TYPE__": "FieldContent",
+				"value": "left",
+				"type": "Select"
 			}
 		},
 		"items": []

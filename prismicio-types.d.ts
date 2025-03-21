@@ -1246,6 +1246,17 @@ export interface InfoSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   paragraph: prismic.RichTextField;
+
+  /**
+   * bg_icon_pos field in *Info → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: left
+   * - **API ID Path**: info.default.primary.bg_icon_pos
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  bg_icon_pos: prismic.SelectField<"left" | "right" | "none", "filled">;
 }
 
 /**

@@ -1,4 +1,6 @@
 import { PrismicRichText } from "@prismicio/react";
+import { createClient } from "@/prismicio";
+import { PrismicNextImage } from "@prismicio/next";
 /**
  * @typedef {import("@prismicio/client").Content.AboutUsSlice} AboutUsSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<AboutUsSlice>} AboutUsProps
@@ -11,7 +13,11 @@ const components = {
   )
 }
 
-const AboutUs = ({ slice }) => {
+const AboutUs = async ({ slice }) => {
+  const client = createClient();
+
+  const data = await client.getSingle("settings").then(res=>res.data);
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -19,6 +25,7 @@ const AboutUs = ({ slice }) => {
       className="about-us"
       id="about"
     >
+      <PrismicNextImage field={data.bg_icon} className="bg_icon"/>
       <p>Hello There</p>
       <PrismicRichText field={slice.primary.header}/>
       <PrismicRichText field={slice.primary.paragraph} components={components}/>

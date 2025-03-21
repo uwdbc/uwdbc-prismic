@@ -29,6 +29,19 @@
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em,hyperlink"
           }
+        },
+        "bg_icon_pos": {
+          "type": "Select",
+          "config": {
+            "label": "bg_icon_pos",
+            "placeholder": "",
+            "options": [
+              "left",
+              "right",
+              "none"
+            ],
+            "default_value": "left"
+          }
         }
       },
       "items": {}
