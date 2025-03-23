@@ -529,10 +529,22 @@ h2 {
     text-align: center;
     position: relative;
     width: 100%;
+    overflow: hidden;
+}
+
+.bg_icon {
+    position: absolute;
+    height: auto;
+    width: 81vw;
+    top: 0;
+    left: 0;
+    transform: translate(-47%, -35%);
+    opacity: 0.5;
 }
 
 .about-us > * {
     max-width: 63rem;
+    z-index: 3;
 }
 
 .about-us > p:first-child {
@@ -757,6 +769,29 @@ section.calendar {
 .Info{
     padding: 8rem 3rem;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.Info * {
+    z-index: 3;
+}
+
+.Info > .bg_icon {
+    width: 60vw;
+}
+
+.Info > .bg_icon.right {
+    
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    transform: translate(47%, 35%);
+}
+
+.Info > .bg_icon.none {
+    display: none;
 }
 
 .Info > .text-container {
@@ -820,6 +855,12 @@ section.calendar {
     Info - Imaged _ Responsive
     ====
 */
+
+@media only screen and (max-width:700px) {
+    .Info > .bg_icon {
+        width: 96vw;
+    }
+}
 
 @media only screen and (max-width: 500px) {
     .Info-Imaged {
@@ -1066,7 +1107,7 @@ footer.small .social-icon > svg path {
     opacity: 0.8;
 }
 
-.gallaryOnHome > h2 {
+.gallaryOnHome > a > h2 {
     text-align: center;
     position: relative;
     padding-top: 4rem;

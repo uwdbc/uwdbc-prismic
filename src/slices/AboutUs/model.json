@@ -15,7 +15,7 @@
         "header": {
           "type": "StructuredText",
           "config": {
-            "label": "Header",
+            "label": "header",
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "heading2"
