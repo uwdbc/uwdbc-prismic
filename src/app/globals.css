@@ -477,7 +477,7 @@ h2 {
     align-items: center;
     gap: 0.6rem;
 
-    z-index: 3;
+    z-index: 100;
     position: fixed;
     right: 3rem;
     top: 2rem;
@@ -547,7 +547,7 @@ h2 {
     z-index: 3;
 }
 
-.about-us > p:first-child {
+.about-us > .helloThere {
     font-family: var(--font-Michroma);
     text-transform: uppercase;
     font-size: 1rem;

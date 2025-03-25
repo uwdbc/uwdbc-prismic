@@ -26,7 +26,7 @@ const AboutUs = async ({ slice }) => {
       id="about"
     >
       <PrismicNextImage field={data.bg_icon} className="bg_icon"/>
-      <p>Hello There</p>
+      <p className="helloThere">Hello There</p>
       <PrismicRichText field={slice.primary.header}/>
       <PrismicRichText field={slice.primary.paragraph} components={components}/>
       {slice.primary.video_bool ? 
