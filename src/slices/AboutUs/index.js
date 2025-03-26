@@ -34,7 +34,7 @@ const AboutUs = async ({ slice }) => {
       <PrismicRichText field={slice.primary.header} components={components}/>
       <PrismicRichText field={slice.primary.paragraph} components={components}/>
       {slice.primary.video_bool ? 
-        <SlideView type="div" className="video">
+        <SlideView type="div" marginTop={-200} delay={0} className="video">
           <div dangerouslySetInnerHTML={{ __html: slice.primary.video_link }} />
         </SlideView>: ""}
       <div className="about__line"></div>
