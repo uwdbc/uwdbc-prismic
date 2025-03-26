@@ -1,6 +1,7 @@
 import { PrismicRichText } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
+import SlideView from "@/components/SlideView";
 /**
  * @typedef {import("@prismicio/client").Content.AboutUsSlice} AboutUsSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<AboutUsSlice>} AboutUsProps
@@ -9,7 +10,10 @@ import { PrismicNextImage } from "@prismicio/next";
 
 const components = {
   paragraph: ({children}) =>(
-    <p className="about-us-para">{children}</p>
+    <SlideView type="p" delay={0.2} className="about-us-para">{children}</SlideView>
+  ),
+  heading2: ({children}) => (
+    <SlideView type="h2" delay={0.2} marginTop={5} >{children}</SlideView>
   )
 }
 
@@ -27,12 +31,12 @@ const AboutUs = async ({ slice }) => {
     >
       <PrismicNextImage field={data.bg_icon} className="bg_icon"/>
       <p className="helloThere">Hello There</p>
-      <PrismicRichText field={slice.primary.header}/>
+      <PrismicRichText field={slice.primary.header} components={components}/>
       <PrismicRichText field={slice.primary.paragraph} components={components}/>
       {slice.primary.video_bool ? 
-        <div className="video">
+        <SlideView type="div" className="video">
           <div dangerouslySetInnerHTML={{ __html: slice.primary.video_link }} />
-        </div>: ""}
+        </SlideView>: ""}
       <div className="about__line"></div>
     </section>
   );
