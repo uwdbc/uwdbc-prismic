@@ -6,6 +6,7 @@ import Linktree from "/public/Linktree";
 import Membership from "/public/Membership";
 import Email from "../../../public/Email";
 import Link from "next/link";
+import SlideView from "@/components/SlideView";
 
 /**
  * @typedef {import("@prismicio/client").Content.BigHeaderSlice} BigHeaderSlice
@@ -14,7 +15,7 @@ import Link from "next/link";
  */
 
 const components = {
-  heading1: ({ children }) => <h1 className="s-title">{children}</h1>,
+  heading1: ({ children }) => <SlideView type="h1" up={true} className="s-title">{children}</SlideView>,
 };
 
 const social_linker = {
@@ -38,14 +39,14 @@ const Hero = ({ slice }) => {
 
       <div className="home-content">
         <PrismicRichText field={slice.primary.header} components={components} />
-        <div className="btn-container">
+        <SlideView type="div" up={false} className="btn-container">
           <Link href="#about" className="btn">
             About Us
           </Link>
           <Link href="#contact-us" className="btn">
             Contact Us
           </Link>
-        </div>
+        </SlideView>
       </div>
 
       <div className="socials">
@@ -60,7 +61,7 @@ const Hero = ({ slice }) => {
       <section className="bottom-hero">
         <div className="slider"></div>
         <Link className="home-content__scroll" href="#about">
-          <span>Scroll Down</span>
+          <SlideView type="span">Scroll Down</SlideView>
         </Link>
       </section>
     </section>
