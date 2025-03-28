@@ -1,0 +1,52 @@
+{
+  "format": "custom",
+  "id": "navbar",
+  "label": "Navbar",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "pages": {
+        "type": "Table",
+        "config": {
+          "label": "Pages"
+        }
+      },
+      "links_to_socials": {
+        "type": "Group",
+        "config": {
+          "label": "links to socials",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": false,
+                "allowText": false,
+                "repeat": false
+              }
+            },
+            "link_type": {
+              "type": "Select",
+              "config": {
+                "label": "link type",
+                "placeholder": "",
+                "options": [
+                  "Instagram",
+                  "Discord",
+                  "LInktree",
+                  "Email",
+                  "Membership"
+                ],
+                "default_value": "Instagram"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
