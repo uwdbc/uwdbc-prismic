@@ -370,6 +370,80 @@ export type MerchDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<MerchDocumentData>, "merch", Lang>;
 
 /**
+ * Item in *Navbar → links to socials*
+ */
+export interface NavbarDocumentDataLinksToSocialsItem {
+  /**
+   * link field in *Navbar → links to socials*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.links_to_socials[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * link type field in *Navbar → links to socials*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Instagram
+   * - **API ID Path**: navbar.links_to_socials[].link_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  link_type: prismic.SelectField<
+    "Instagram" | "Discord" | "LInktree" | "Email" | "Membership",
+    "filled"
+  >;
+}
+
+/**
+ * Content for Navbar documents
+ */
+interface NavbarDocumentData {
+  /**
+   * Pages field in *Navbar*
+   *
+   * - **Field Type**: Table
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.pages
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#table
+   */
+  pages: prismic.TableField;
+
+  /**
+   * links to socials field in *Navbar*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.links_to_socials[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links_to_socials: prismic.GroupField<
+    Simplify<NavbarDocumentDataLinksToSocialsItem>
+  >;
+}
+
+/**
+ * Navbar document from Prismic
+ *
+ * - **API ID**: `navbar`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavbarDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NavbarDocumentData>,
+    "navbar",
+    Lang
+  >;
+
+/**
  * Content for settings documents
  */
 interface SettingsDocumentData {
@@ -451,6 +525,7 @@ export type AllDocumentTypes =
   | GalleryDocument
   | HomeDocument
   | MerchDocument
+  | NavbarDocument
   | SettingsDocument;
 
 /**
@@ -586,7 +661,7 @@ export interface BigHeaderSliceDefaultPrimaryLinksToSocialItem {
    * - **API ID Path**: big_header.default.primary.links_to_social[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * link type field in *Hero → Default → Primary → Links to Social*
@@ -939,7 +1014,7 @@ export interface FooterSliceDefaultPrimaryLinksToSocialItem {
    * - **API ID Path**: footer.default.primary.links_to_social[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * link type field in *Footer → Default → Primary → Links to Social*
@@ -968,7 +1043,7 @@ export interface FooterSliceSmallPrimaryLinksToSocialItem {
    * - **API ID Path**: footer.small.primary.links_to_social[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * link type field in *Footer → Small → Primary → Links to Social*
@@ -1442,6 +1517,9 @@ declare module "@prismicio/client" {
       MerchDocument,
       MerchDocumentData,
       MerchDocumentDataSlicesSlice,
+      NavbarDocument,
+      NavbarDocumentData,
+      NavbarDocumentDataLinksToSocialsItem,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,

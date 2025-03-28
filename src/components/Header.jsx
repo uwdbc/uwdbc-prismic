@@ -4,10 +4,13 @@ import { createClient } from "@/prismicio";
 import Hamburger from "/public/Hamburger";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+import Close from "../../public/Close";
+import Link from "next/link";
 
 export default function Header() {
   const [menuButtonClasses, setMenuButtonClasses] = useState("Menu-Button");
   const [data, setdata] = useState(undefined); // Store fetched data
+  const [navOpen, setnavOpen] = useState(false);
 
   useEffect(() => {
     // Scroll event listener
@@ -37,6 +40,10 @@ export default function Header() {
     fetchData();
   }, []); // Runs once on mount
 
+  function handleClick() {
+    setnavOpen(prev => !prev);
+  }
+
   return (
     <header>
       <div className="right-side">
@@ -48,10 +55,39 @@ export default function Header() {
                     <ThemeToggle />
                 </label> */}
 
-        <button className={menuButtonClasses}>
+        {navOpen ? "" :
+        <button className={menuButtonClasses} onClick={handleClick}>
           <span>Menu</span>
           <Hamburger />
-        </button>
+        </button>}
+
+        { navOpen ?
+          <div className="navbar">
+          
+          <button className="close" onClick={handleClick}>
+            <Close />
+            <p>Navigation</p>
+          </button>
+
+          <div className="pages">
+            <div>
+              <span><Link href="/">Home</Link></span>
+              <Link href="/">About</Link>
+              <Link href="/">Gallery</Link>
+              <Link href="/">Calendar</Link>
+              <Link href="/">Sponser Us</Link>
+              <Link href="/">Contact Us</Link>
+            </div>
+            <div><span><Link href="/">Executive Team</Link></span></div>
+            <div><span><Link href="/">Swag</Link></span></div>
+          </div>
+
+          <div className="socials">
+            
+          </div>
+          
+        </div>
+        : ""}
       </div>
     </header>
   );

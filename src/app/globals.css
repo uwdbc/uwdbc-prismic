@@ -477,7 +477,7 @@ h2 {
     align-items: center;
     gap: 0.6rem;
 
-    z-index: 3;
+    z-index: 100;
     position: fixed;
     right: 3rem;
     top: 2rem;
@@ -490,6 +490,49 @@ h2 {
 
 .shaded {
     background-color: black;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 11rem;
+    background-color: black;
+    color: white;
+    z-index: 20;
+    padding-top: 2rem;
+    overflow: hidden;
+}
+
+.navbar .close {
+    color: var(--gold);
+    display: flex;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 3px;
+    width: 100%;
+}
+
+.navbar .close svg {
+    fill: #e9e8df;
+    height: auto;
+    width: 0.8rem;
+}
+
+.navbar .pages {
+    margin-top: 2rem;
+}
+
+.navbar .pages > div {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.navbar .pages > div > a {
+    margin-left: 20px;
+    display: block;
 }
 
 /* 
@@ -547,7 +590,7 @@ h2 {
     z-index: 3;
 }
 
-.about-us > p:first-child {
+.about-us > .helloThere {
     font-family: var(--font-Michroma);
     text-transform: uppercase;
     font-size: 1rem;
@@ -1101,6 +1144,18 @@ footer.small .social-icon > svg path {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.gallaryTransition {
+    animation: FadeIn 0.3s ease-in;
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0.8;
+    }
 }
 
 .gallaryOnHome > .overlay {
