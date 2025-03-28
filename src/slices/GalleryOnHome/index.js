@@ -6,6 +6,7 @@ import { isFilled } from "@prismicio/client";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import Link from "next/link";
+import SlideView from "@/components/SlideView";
 
 /**
  * @typedef {import("@prismicio/client").Content.GalleryOnHomeSlice} GalleryOnHomeSlice
@@ -23,9 +24,14 @@ const GalleryOnHome = ({ slice }) => {
   const client = createClient()
   const [index, setIndex] = useState(0);
   const [albums, setAlbums] = useState([]);
+  const [isTranstion, setTranstion] = useState(false);
 
   function handleMove(newVal) {
     setIndex(newVal)
+    setTranstion(true);
+    setTimeout(()=> {
+      setTranstion(false);
+    },300);
   }
 
   useEffect(()=>{
@@ -46,21 +52,21 @@ const GalleryOnHome = ({ slice }) => {
 
   const curAlbum = albums[index];
   return (
-    <>{albums.length && 
+    <>{albums.length &&
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       style={{backgroundImage:`url(${curAlbum.data.background_image.url})`}}
       className="gallaryOnHome"
       >
-      <div className="overlay"></div>
+      <div className={clsx("overlay", isTranstion && "gallaryTransition")}></div>
 
       <Link href="/gallery">
         <PrismicRichText field={slice.primary.heading} components={components}/>
       </Link>
       <div className="albumInfo">
-        <h3 className="glow">{curAlbum.data.album_name}</h3>
-        <p>{curAlbum.data.description}</p>
+        <SlideView type="h3" className="glow">{curAlbum.data.album_name}</SlideView>
+        <SlideView type="p" up={false}>{curAlbum.data.description}</SlideView>
         <Link href={`/gallery/#${curAlbum.uid}`}>Explore More</Link>
       </div>
 

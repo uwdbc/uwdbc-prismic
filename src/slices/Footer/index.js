@@ -8,6 +8,7 @@ import Linktree from "/public/Linktree";
 import Membership from "/public/Membership";
 import Email from "/public/Email";
 import Link from "next/link";
+import SlideView from "@/components/SlideView";
 
 const social_linker = {
   "Discord": <Discord />,
@@ -15,6 +16,12 @@ const social_linker = {
   "Linktree": <Linktree />,
   "Membership": <Membership />,
   "Email": <Email />
+}
+
+const components = {
+  paragraph: ({children}) => (
+    <SlideView type="p" up={false}>{children}</SlideView>
+  )
 }
 
 /**
@@ -42,11 +49,11 @@ const Footer = async ({ slice }) => {
       <div className="long-stick"></div>
 
       <div className="contact-text">
-        <span>Contact Us</span>
-        <PrismicRichText field={slice.primary.small_paragraph} />
+        <SlideView type="span" up={false}>Contact Us</SlideView>
+        <PrismicRichText field={slice.primary.small_paragraph} components={components}/>
       </div>
 
-      <div className="left-sec">
+      <SlideView type="div" up={false} className="left-sec">
         <div>
           <h6>Where To Find Us</h6>
           <PrismicRichText field={slice.primary.location} />
@@ -56,15 +63,15 @@ const Footer = async ({ slice }) => {
           <h6>Email Us At</h6>
           <a href={`mailto:${slice.primary.email}`} target="blank">{slice.primary.email}</a>
         </div>
-      </div>
+      </SlideView>
 
-      <div className="socials">
+      <SlideView type="div" up={false} className="socials">
         {slice.primary.links_to_social && slice.primary.links_to_social.map((item, index) => (
           <PrismicNextLink field={item.link} key={index} className="social">
             <div className="social-icon">{social_linker[item.link_type]}</div>  
           </PrismicNextLink>
         ))}
-      </div>
+      </SlideView>
 
       <Link href="/">
         <PrismicNextImage field={data.website_logo} className="logo"/>

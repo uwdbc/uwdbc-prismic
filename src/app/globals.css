@@ -1103,6 +1103,18 @@ footer.small .social-icon > svg path {
     background-repeat: no-repeat;
 }
 
+.gallaryTransition {
+    animation: FadeIn 0.3s ease-in;
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0.8;
+    }
+}
+
 .gallaryOnHome > .overlay {
     opacity: 0.8;
 }
