@@ -503,6 +503,7 @@ h2 {
     z-index: 20;
     padding-top: 2rem;
     overflow: hidden;
+    font-weight: 300;
 }
 
 .navbar .close {
@@ -513,6 +514,7 @@ h2 {
     align-items: center;
     margin-left: 3px;
     width: 100%;
+    padding-inline: 10px;
 }
 
 .navbar .close svg {

@@ -35,7 +35,6 @@ export default function Header() {
       const client = createClient();
       const response = await client.getSingle("navbar");
       setdata(response.data);
-      // console.log(response.data)
     };
 
     fetchData();
@@ -71,7 +70,15 @@ export default function Header() {
           </button>
 
           <div className="pages">
-            <div>
+            { data.pages.map((item,index)=>(
+              <div key={index}>
+                <span><Link href={item.page.url}>{item.display_name}</Link></span>
+                {item.sub_pages?.toLowerCase().split(" ").map((id, i) => (
+                  <Link key={i} href={`${item.page.url}#${id}`}>{toCapitalize(id.replace("_", " "))}</Link>
+                ))}
+              </div>
+            ))}
+            {/* <div>
               <span><Link href="/">Home</Link></span>
               <Link href="/">About</Link>
               <Link href="/">Gallery</Link>
@@ -80,7 +87,7 @@ export default function Header() {
               <Link href="/">Contact Us</Link>
             </div>
             <div><span><Link href="/">Executive Team</Link></span></div>
-            <div><span><Link href="/">Swag</Link></span></div>
+            <div><span><Link href="/">Swag</Link></span></div> */}
           </div>
 
           <div className="socials">
@@ -92,4 +99,14 @@ export default function Header() {
       </div>
     </header>
   );
+}
+
+
+function toCapitalize(str) {
+  const strList =  str.split(" ");
+  let res = ""
+  strList.forEach(part => {
+    res += " " + part.charAt(0).toUpperCase() + part.slice(1)
+  })
+  return res.slice(1)
 }
