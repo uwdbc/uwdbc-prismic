@@ -6,12 +6,6 @@
   "status": true,
   "json": {
     "Main": {
-      "pages": {
-        "type": "Table",
-        "config": {
-          "label": "Pages"
-        }
-      },
       "links_to_socials": {
         "type": "Group",
         "config": {
@@ -37,11 +31,43 @@
                 "options": [
                   "Instagram",
                   "Discord",
-                  "LInktree",
+                  "Linktree",
                   "Email",
                   "Membership"
                 ],
                 "default_value": "Instagram"
+              }
+            }
+          }
+        }
+      },
+      "pages": {
+        "type": "Group",
+        "config": {
+          "label": "Pages",
+          "repeat": true,
+          "fields": {
+            "page": {
+              "type": "Link",
+              "config": {
+                "label": "Page",
+                "select": "document",
+                "repeat": false,
+                "customtypes": ["gallery", "home", "merch", "exec_page"]
+              }
+            },
+            "display_name": {
+              "type": "Text",
+              "config": {
+                "label": "Display Name",
+                "placeholder": ""
+              }
+            },
+            "sub_pages": {
+              "type": "Text",
+              "config": {
+                "label": "Sub Pages",
+                "placeholder": "write the id of the sub pages as you wrote them in the page with spaces in between."
               }
             }
           }

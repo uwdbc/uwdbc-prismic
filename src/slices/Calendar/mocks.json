@@ -52,6 +52,11 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "life",
+				"type": "Text"
 			}
 		},
 		"items": []

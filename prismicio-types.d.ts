@@ -393,26 +393,52 @@ export interface NavbarDocumentDataLinksToSocialsItem {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   link_type: prismic.SelectField<
-    "Instagram" | "Discord" | "LInktree" | "Email" | "Membership",
+    "Instagram" | "Discord" | "Linktree" | "Email" | "Membership",
     "filled"
   >;
+}
+
+/**
+ * Item in *Navbar → Pages*
+ */
+export interface NavbarDocumentDataPagesItem {
+  /**
+   * Page field in *Navbar → Pages*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.pages[].page
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  page: prismic.ContentRelationshipField<
+    "gallery" | "home" | "merch" | "exec_page"
+  >;
+
+  /**
+   * Display Name field in *Navbar → Pages*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.pages[].display_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  display_name: prismic.KeyTextField;
+
+  /**
+   * Sub Pages field in *Navbar → Pages*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: write the id of the sub pages as you wrote them in the page with spaces in between.
+   * - **API ID Path**: navbar.pages[].sub_pages
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_pages: prismic.KeyTextField;
 }
 
 /**
  * Content for Navbar documents
  */
 interface NavbarDocumentData {
-  /**
-   * Pages field in *Navbar*
-   *
-   * - **Field Type**: Table
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.pages
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#table
-   */
-  pages: prismic.TableField;
-
   /**
    * links to socials field in *Navbar*
    *
@@ -425,6 +451,17 @@ interface NavbarDocumentData {
   links_to_socials: prismic.GroupField<
     Simplify<NavbarDocumentDataLinksToSocialsItem>
   >;
+
+  /**
+   * Pages field in *Navbar*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.pages[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  pages: prismic.GroupField<Simplify<NavbarDocumentDataPagesItem>>;
 }
 
 /**
@@ -532,6 +569,16 @@ export type AllDocumentTypes =
  * Primary content in *AboutUs → Default → Primary*
  */
 export interface AboutUsSliceDefaultPrimary {
+  /**
+   * uid field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: about_us.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
   /**
    * header field in *AboutUs → Default → Primary*
    *
@@ -748,6 +795,16 @@ export type BigHeaderSlice = prismic.SharedSlice<
  */
 export interface CalendarSliceDefaultPrimary {
   /**
+   * uid field in *Calendar → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: calendar.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
+  /**
    * Heading field in *Calendar → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -858,6 +915,16 @@ export interface CoachingTeamSliceDefaultPrimaryCoachesItem {
  */
 export interface CoachingTeamSliceDefaultPrimary {
   /**
+   * uid field in *CoachingTeam → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: coaching_team.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
+  /**
    * Title field in *CoachingTeam → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -949,6 +1016,16 @@ export interface ExecPageSliceDefaultPrimaryExecTeamItem {
  * Primary content in *ExecTeam → Default → Primary*
  */
 export interface ExecPageSliceDefaultPrimary {
+  /**
+   * uid field in *ExecTeam → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: exec_page.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
   /**
    * Title field in *ExecTeam → Default → Primary*
    *
@@ -1064,6 +1141,16 @@ export interface FooterSliceSmallPrimaryLinksToSocialItem {
  * Primary content in *Footer → Default → Primary*
  */
 export interface FooterSliceDefaultPrimary {
+  /**
+   * uid field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: footer.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
   /**
    * Background Image field in *Footer → Default → Primary*
    *
@@ -1194,6 +1281,16 @@ export interface GalleryOnHomeSliceDefaultPrimaryAlbumsItem {
  */
 export interface GalleryOnHomeSliceDefaultPrimary {
   /**
+   * uid field in *GalleryOnHome → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: gallery_on_home.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
+  /**
    * Heading field in *GalleryOnHome → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1303,6 +1400,16 @@ export type HeaderSlice = prismic.SharedSlice<"header", HeaderSliceVariation>;
  */
 export interface InfoSliceDefaultPrimary {
   /**
+   * uid field in *Info → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: info.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
+  /**
    * Heading field in *Info → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1351,6 +1458,16 @@ export type InfoSliceDefault = prismic.SharedSliceVariation<
  * Primary content in *Info → Imaged → Primary*
  */
 export interface InfoSliceImagedPrimary {
+  /**
+   * uid field in *Info → Imaged → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: info.imaged.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
   /**
    * Heading field in *Info → Imaged → Primary*
    *
@@ -1428,6 +1545,16 @@ export interface MerchPhotosSliceDefaultPrimaryPhotosItem {
  * Primary content in *MerchPhotos → Default → Primary*
  */
 export interface MerchPhotosSliceDefaultPrimary {
+  /**
+   * uid field in *MerchPhotos → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: merch_photos.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
   /**
    * Heading field in *MerchPhotos → Default → Primary*
    *
@@ -1520,6 +1647,7 @@ declare module "@prismicio/client" {
       NavbarDocument,
       NavbarDocumentData,
       NavbarDocumentDataLinksToSocialsItem,
+      NavbarDocumentDataPagesItem,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,

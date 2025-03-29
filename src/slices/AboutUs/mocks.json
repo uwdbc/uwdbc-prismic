@@ -33,6 +33,11 @@
 						}
 					}
 				]
+			},
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "cover",
+				"type": "Text"
 			}
 		},
 		"items": []

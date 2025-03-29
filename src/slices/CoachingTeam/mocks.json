@@ -77,6 +77,11 @@
 						}
 					}
 				]
+			},
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "curious",
+				"type": "Text"
 			}
 		},
 		"items": []
