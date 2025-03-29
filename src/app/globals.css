@@ -497,7 +497,8 @@ h2 {
     top: 0;
     right: 0;
     height: 100vh;
-    width: 11rem;
+    width: 100%;
+    max-width: 11rem;
     background-color: black;
     color: white;
     z-index: 20;
@@ -515,6 +516,7 @@ h2 {
     margin-left: 3px;
     width: 100%;
     padding-inline: 10px;
+    text-transform: uppercase;
 }
 
 .navbar .close svg {
@@ -537,6 +539,29 @@ h2 {
     display: block;
 }
 
+.navbar .socials {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    right: 0;
+    position: relative;
+    margin-top: 4rem;
+    gap: 21px;
+}
+
+.navbar .socials .social-icon {
+    border: none;
+}
+
+.navbar .socials .social-icon path {
+    fill: #606060;
+    transition: fill 0.3s ease-in;
+}
+
+.navbar .socials .social-icon svg:hover path {
+    fill: #cccaca;
+}
+
 /* 
     ====
     Header - Responsive
@@ -550,6 +575,12 @@ h2 {
 
     .site-logo {
         left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .navbar .socials {
+        display: flex;
     }
 }
 
