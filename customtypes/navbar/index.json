@@ -6,10 +6,10 @@
   "status": true,
   "json": {
     "Main": {
-      "links_to_socials": {
+      "links_to_social": {
         "type": "Group",
         "config": {
-          "label": "links to socials",
+          "label": "links to social",
           "repeat": true,
           "fields": {
             "link": {

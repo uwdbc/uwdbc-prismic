@@ -29,8 +29,8 @@ const ExecPage = ({ slice }) => {
       />
 
       <div className="card-container">
-        {slice.primary.execTeam.map((item) => (
-          <div className="exec-card">
+        {slice.primary.execTeam.map((item, i) => (
+          <div key={i} className="exec-card">
             <PrismicNextImage
               field={item.execImage}
               className="exec-image"

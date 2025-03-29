@@ -370,26 +370,26 @@ export type MerchDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<MerchDocumentData>, "merch", Lang>;
 
 /**
- * Item in *Navbar → links to socials*
+ * Item in *Navbar → links to social*
  */
-export interface NavbarDocumentDataLinksToSocialsItem {
+export interface NavbarDocumentDataLinksToSocialItem {
   /**
-   * link field in *Navbar → links to socials*
+   * link field in *Navbar → links to social*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.links_to_socials[].link
+   * - **API ID Path**: navbar.links_to_social[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
-   * link type field in *Navbar → links to socials*
+   * link type field in *Navbar → links to social*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: Instagram
-   * - **API ID Path**: navbar.links_to_socials[].link_type
+   * - **API ID Path**: navbar.links_to_social[].link_type
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   link_type: prismic.SelectField<
@@ -440,16 +440,16 @@ export interface NavbarDocumentDataPagesItem {
  */
 interface NavbarDocumentData {
   /**
-   * links to socials field in *Navbar*
+   * links to social field in *Navbar*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.links_to_socials[]
+   * - **API ID Path**: navbar.links_to_social[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  links_to_socials: prismic.GroupField<
-    Simplify<NavbarDocumentDataLinksToSocialsItem>
+  links_to_social: prismic.GroupField<
+    Simplify<NavbarDocumentDataLinksToSocialItem>
   >;
 
   /**
@@ -1646,7 +1646,7 @@ declare module "@prismicio/client" {
       MerchDocumentDataSlicesSlice,
       NavbarDocument,
       NavbarDocumentData,
-      NavbarDocumentDataLinksToSocialsItem,
+      NavbarDocumentDataLinksToSocialItem,
       NavbarDocumentDataPagesItem,
       SettingsDocument,
       SettingsDocumentData,

@@ -43,7 +43,7 @@ const Hero = ({ slice }) => {
           <Link href="#about" className="btn">
             About Us
           </Link>
-          <Link href="#contact-us" className="btn">
+          <Link href="#contact_us" className="btn">
             Contact Us
           </Link>
         </SlideView>
