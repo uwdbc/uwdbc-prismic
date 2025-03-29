@@ -13,6 +13,7 @@ const CoachingTeam = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="coachPage"
+      id={slice.primary.uid.toLowerCase()}
     >
       <PrismicRichText
         field={slice.primary.title}

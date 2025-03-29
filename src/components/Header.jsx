@@ -33,8 +33,9 @@ export default function Header() {
     // Fetch data from Prismic
     const fetchData = async () => {
       const client = createClient();
-      const response = await client.getSingle("settings");
+      const response = await client.getSingle("navbar");
       setdata(response.data);
+      // console.log(response.data)
     };
 
     fetchData();

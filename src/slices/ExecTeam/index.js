@@ -19,6 +19,7 @@ const ExecPage = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="execPage"
+      id={slice.primary.uid.toLowerCase()}
     >
       <PrismicRichText
         field={slice.primary.title}

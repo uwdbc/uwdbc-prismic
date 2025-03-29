@@ -12,6 +12,7 @@ const MerchPhotos = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="merchPhotos"
+      id={slice.primary.uid.toLowerCase()}
     >
       <PrismicRichText field={slice.primary.heading} />
       <div className="photos">

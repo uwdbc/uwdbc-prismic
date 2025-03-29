@@ -1,5 +1,6 @@
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
+import clsx from "clsx";
 /**
  * @typedef {import("@prismicio/client").Content.AlbumOnGallerySlice} AlbumOnGallerySlice
  * @typedef {import("@prismicio/react").SliceComponentProps<AlbumOnGallerySlice>} AlbumOnGalleryProps
