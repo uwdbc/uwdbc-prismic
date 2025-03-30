@@ -16,6 +16,10 @@
     font-family: var(--font-Montserrat);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: var(--p-col);
     display: flex;
