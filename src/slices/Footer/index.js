@@ -42,7 +42,7 @@ const Footer = async ({ slice }) => {
       data-slice-variation={slice.variation}
       style={{backgroundImage:`url(${slice.primary.background_image.url})`}}
       className="contact"
-      id="contact-us"
+      id={slice.primary.uid.toLowerCase()}
     >
       <div className="overlay"></div>
       <div className="shadow-overlay"></div>

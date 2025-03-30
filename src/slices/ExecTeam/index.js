@@ -19,6 +19,7 @@ const ExecPage = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="execPage"
+      id={slice.primary.uid.toLowerCase()}
     >
       <PrismicRichText
         field={slice.primary.title}
@@ -28,8 +29,8 @@ const ExecPage = ({ slice }) => {
       />
 
       <div className="card-container">
-        {slice.primary.execTeam.map((item) => (
-          <div className="exec-card">
+        {slice.primary.execTeam.map((item, i) => (
+          <div key={i} className="exec-card">
             <PrismicNextImage
               field={item.execImage}
               className="exec-image"

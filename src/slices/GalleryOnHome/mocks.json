@@ -34,6 +34,11 @@
 						}
 					}
 				]
+			},
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "lie",
+				"type": "Text"
 			}
 		},
 		"items": []

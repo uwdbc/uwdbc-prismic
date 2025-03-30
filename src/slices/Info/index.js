@@ -32,6 +32,7 @@ const Info = async ({ slice }) => {
         { backgroundImage: `url(${slice.primary.image.url})` }
         : {}}
       className={clsx("Info", slice.variation == "imaged" && "Info-Imaged")}
+      id={slice.primary.uid.toLowerCase()}
     >
       <PrismicNextImage field={data.bg_icon} className={`bg_icon ${slice.primary.bg_icon_pos}`} />
       {slice.variation == "imaged" ? <div className="Info-overlay"></div> : ""}

@@ -58,6 +58,7 @@ const GalleryOnHome = ({ slice }) => {
       data-slice-variation={slice.variation}
       style={{backgroundImage:`url(${curAlbum.data.background_image.url})`}}
       className="gallaryOnHome"
+      id={slice.primary.uid.toLowerCase()}
       >
       <div className={clsx("overlay", isTranstion && "gallaryTransition")}></div>
 

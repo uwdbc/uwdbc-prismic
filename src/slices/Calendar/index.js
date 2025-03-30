@@ -28,6 +28,7 @@ const Calendar = ({ slice }) => {
       data-slice-variation={slice.variation}
       style={{ backgroundImage: `url(${slice.primary.background_image.url})` }}
       className="calendar"
+      id={slice.primary.uid.toLowerCase()}
     >
       <div className="overlay"></div>
       <div className="shadow-overlay"></div>

@@ -27,7 +27,7 @@ const AboutUs = async ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="about-us"
-      id="about"
+      id={slice.primary.uid.toLowerCase()}
     >
       <PrismicNextImage field={data.bg_icon} className="bg_icon"/>
       <p className="helloThere">Hello There</p>

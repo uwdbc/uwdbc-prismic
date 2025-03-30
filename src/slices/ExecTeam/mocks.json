@@ -138,6 +138,11 @@
 						}
 					}
 				]
+			},
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "quickly",
+				"type": "Text"
 			}
 		},
 		"items": []
