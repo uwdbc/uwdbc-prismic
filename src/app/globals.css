@@ -1637,11 +1637,12 @@ button.direction.left {
     justify-content: flex-start;
 }
 
-.photoContainer > img {
-    margin-top: 0.3rem;
-    max-height: 19rem;
+.photoContainer img {
+    height: 100%;
     width: auto;
     object-fit: cover;
+    margin-top: 0.3rem;
+    max-height: 19rem;
     flex-grow: 1;
     flex-shrink: 1;
 }
