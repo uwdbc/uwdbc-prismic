@@ -306,6 +306,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type MerchDocumentDataSlicesSlice =
+  | InfoSlice
   | MerchPhotosSlice
   | FooterSlice
   | HeaderSlice;
