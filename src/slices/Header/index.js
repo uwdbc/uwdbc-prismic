@@ -10,7 +10,7 @@ import SlideView from "@/components/SlideView";
  */
 const components = {
   heading1: ({ children }) => (
-    <h1 className="headerTitle glow"><SlideView type="span">{children}</SlideView></h1>
+    <SlideView type="h1" className="headerTitle glow">{children}</SlideView>
   ),
 }
 
@@ -27,7 +27,6 @@ const Header = ({ slice }) => {
           className="headerBackgroundImage"
         />
         
-
         <PrismicRichText
           field={slice.primary.title}
           components={components}
