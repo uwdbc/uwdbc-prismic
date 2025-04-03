@@ -1412,7 +1412,10 @@ button.direction.left {
     top: 0;
     left: 0;
     width: 100%;
-    height: 6.5rem;
+    height: 7.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .headerContainer > .overlay {
@@ -1420,24 +1423,20 @@ button.direction.left {
 }
 
 .headerBackgroundImage {
+    position: absolute;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
     object-fit: cover; /* Ensure the image fits and crops itself within the container */
 }
 
 .headerTitle{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     text-align: center;
     z-index: 2;
-   
-    font-size: clamp(1rem, 9vw, 3rem);
+    font-size: clamp(1rem, 5vw, 3rem);
     font-weight: bold;
     font-family: var(--font-Montserrat);
 }
@@ -1694,4 +1693,33 @@ button.direction.left {
         width: 80%;
         height: auto;
     }
+}
+
+/* 
+    ====
+    Carousel
+    ====
+*/
+
+.carousell {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    max-width: 1500px;
+}
+
+section.splide {
+    width: 100%;
+}
+
+.splide__list {
+    vertical-align: center;
+}
+
+.splide__slide img {
+    width: 90%;
+    height: 80%;
+    margin-left: 5%;
+    object-fit: cover;
 }

@@ -49,6 +49,11 @@
 						]
 					}
 				]
+			},
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "color",
+				"type": "Text"
 			}
 		},
 		"items": []

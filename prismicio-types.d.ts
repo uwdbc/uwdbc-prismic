@@ -306,6 +306,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type MerchDocumentDataSlicesSlice =
+  | CarouselSlice
   | InfoSlice
   | MerchPhotosSlice
   | FooterSlice
@@ -895,6 +896,16 @@ export interface CarouselSliceDefaultPrimaryImagesItem {
  * Primary content in *Carousel → Default → Primary*
  */
 export interface CarouselSliceDefaultPrimary {
+  /**
+   * uid field in *Carousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: carousel.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
   /**
    * Heading field in *Carousel → Default → Primary*
    *
