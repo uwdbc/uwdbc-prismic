@@ -1595,9 +1595,61 @@ export type InfoSliceImaged = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Info → JustText → Primary*
+ */
+export interface InfoSliceJustTextPrimary {
+  /**
+   * uid field in *Info → JustText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: info.justText.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
+  /**
+   * paragraph field in *Info → JustText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info.justText.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Size field in *Info → JustText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: md
+   * - **API ID Path**: info.justText.primary.size
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  size: prismic.SelectField<"md" | "sm" | "lg", "filled">;
+}
+
+/**
+ * JustText variation for Info Slice
+ *
+ * - **API ID**: `justText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoSliceJustText = prismic.SharedSliceVariation<
+  "justText",
+  Simplify<InfoSliceJustTextPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Info*
  */
-type InfoSliceVariation = InfoSliceDefault | InfoSliceImaged;
+type InfoSliceVariation =
+  | InfoSliceDefault
+  | InfoSliceImaged
+  | InfoSliceJustText;
 
 /**
  * Info Shared Slice
@@ -1785,9 +1837,11 @@ declare module "@prismicio/client" {
       InfoSlice,
       InfoSliceDefaultPrimary,
       InfoSliceImagedPrimary,
+      InfoSliceJustTextPrimary,
       InfoSliceVariation,
       InfoSliceDefault,
       InfoSliceImaged,
+      InfoSliceJustText,
       MerchPhotosSlice,
       MerchPhotosSliceDefaultPrimaryPhotosItem,
       MerchPhotosSliceDefaultPrimary,
