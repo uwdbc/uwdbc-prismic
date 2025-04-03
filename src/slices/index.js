@@ -7,6 +7,7 @@ export const components = {
   album_on_gallery: dynamic(() => import("./AlbumOnGallery")),
   big_header: dynamic(() => import("./Hero")),
   calendar: dynamic(() => import("./Calendar")),
+  carousel: dynamic(() => import("./Carousel")),
   coaching_team: dynamic(() => import("./CoachingTeam")),
   exec_page: dynamic(() => import("./ExecTeam")),
   footer: dynamic(() => import("./Footer")),

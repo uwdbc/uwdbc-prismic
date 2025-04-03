@@ -99,5 +99,38 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "justText",
+		"primary": {
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "period",
+				"type": "Text"
+			},
+			"paragraph": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Reprehenderit aliqua officia quis duis labore nisi quis amet cillum."
+						}
+					}
+				]
+			},
+			"size": {
+				"__TYPE__": "FieldContent",
+				"value": "md",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

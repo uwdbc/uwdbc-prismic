@@ -1,3 +1,4 @@
+import SlideView from "@/components/SlideView";
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 import clsx from "clsx";
@@ -18,7 +19,7 @@ const AlbumOnGallery = async ({ slice }) => {
       className="albumContainer"
       id={album.uid}
     >
-      <h2>{data.album_name}</h2>
+      <SlideView type="h2">{data.album_name}</SlideView>
       <div className="photoContainer">
         {data.photos.map((item, index) => (
           <PrismicNextImage key={index} field={item.photo} />

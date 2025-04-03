@@ -1,5 +1,6 @@
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
+import SlideView from "@/components/SlideView";
 
 /**
  *
@@ -7,6 +8,12 @@ import { PrismicNextImage } from "@prismicio/next";
  * @typedef {import("@prismicio/react").SliceComponentProps<HeaderSlice>} HeaderProps
  * @param {HeaderProps}
  */
+const components = {
+  heading1: ({ children }) => (
+    <SlideView type="h1" className="headerTitle glow">{children}</SlideView>
+  ),
+}
+
 const Header = ({ slice }) => {
   return (
     <section
@@ -20,14 +27,9 @@ const Header = ({ slice }) => {
           className="headerBackgroundImage"
         />
         
-
         <PrismicRichText
           field={slice.primary.title}
-          components={{
-            heading1: ({ children }) => (
-              <h1 className="headerTitle glow">{children}</h1>
-            ),
-          }}
+          components={components}
         />
     </section>
   );

@@ -306,6 +306,8 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type MerchDocumentDataSlicesSlice =
+  | CarouselSlice
+  | InfoSlice
   | MerchPhotosSlice
   | FooterSlice
   | HeaderSlice;
@@ -873,6 +875,86 @@ type CalendarSliceVariation = CalendarSliceDefault;
 export type CalendarSlice = prismic.SharedSlice<
   "calendar",
   CalendarSliceVariation
+>;
+
+/**
+ * Item in *Carousel → Default → Primary → images*
+ */
+export interface CarouselSliceDefaultPrimaryImagesItem {
+  /**
+   * image field in *Carousel → Default → Primary → images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Carousel → Default → Primary*
+ */
+export interface CarouselSliceDefaultPrimary {
+  /**
+   * uid field in *Carousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: carousel.default.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
+  /**
+   * Heading field in *Carousel → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * images field in *Carousel → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<CarouselSliceDefaultPrimaryImagesItem>>;
+}
+
+/**
+ * Default variation for Carousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarouselSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CarouselSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Carousel*
+ */
+type CarouselSliceVariation = CarouselSliceDefault;
+
+/**
+ * Carousel Shared Slice
+ *
+ * - **API ID**: `carousel`
+ * - **Description**: Carousel
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarouselSlice = prismic.SharedSlice<
+  "carousel",
+  CarouselSliceVariation
 >;
 
 /**
@@ -1513,9 +1595,61 @@ export type InfoSliceImaged = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Info → JustText → Primary*
+ */
+export interface InfoSliceJustTextPrimary {
+  /**
+   * uid field in *Info → JustText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: NO SPACE/Use _ instead of space, and it will be replaced in production with space
+   * - **API ID Path**: info.justText.primary.uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+
+  /**
+   * paragraph field in *Info → JustText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info.justText.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Size field in *Info → JustText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: md
+   * - **API ID Path**: info.justText.primary.size
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  size: prismic.SelectField<"md" | "sm" | "lg", "filled">;
+}
+
+/**
+ * JustText variation for Info Slice
+ *
+ * - **API ID**: `justText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoSliceJustText = prismic.SharedSliceVariation<
+  "justText",
+  Simplify<InfoSliceJustTextPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Info*
  */
-type InfoSliceVariation = InfoSliceDefault | InfoSliceImaged;
+type InfoSliceVariation =
+  | InfoSliceDefault
+  | InfoSliceImaged
+  | InfoSliceJustText;
 
 /**
  * Info Shared Slice
@@ -1668,6 +1802,11 @@ declare module "@prismicio/client" {
       CalendarSliceDefaultPrimary,
       CalendarSliceVariation,
       CalendarSliceDefault,
+      CarouselSlice,
+      CarouselSliceDefaultPrimaryImagesItem,
+      CarouselSliceDefaultPrimary,
+      CarouselSliceVariation,
+      CarouselSliceDefault,
       CoachingTeamSlice,
       CoachingTeamSliceDefaultPrimaryCoachesItem,
       CoachingTeamSliceDefaultPrimary,
@@ -1698,9 +1837,11 @@ declare module "@prismicio/client" {
       InfoSlice,
       InfoSliceDefaultPrimary,
       InfoSliceImagedPrimary,
+      InfoSliceJustTextPrimary,
       InfoSliceVariation,
       InfoSliceDefault,
       InfoSliceImaged,
+      InfoSliceJustText,
       MerchPhotosSlice,
       MerchPhotosSliceDefaultPrimaryPhotosItem,
       MerchPhotosSliceDefaultPrimary,

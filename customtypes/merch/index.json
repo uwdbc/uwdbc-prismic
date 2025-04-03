@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "carousel": {
+              "type": "SharedSlice"
+            },
+            "info": {
+              "type": "SharedSlice"
+            },
             "merch_photos": {
               "type": "SharedSlice"
             },

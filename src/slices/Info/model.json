@@ -96,6 +96,46 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "justText",
+      "name": "JustText",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "uid": {
+          "type": "Text",
+          "config": {
+            "label": "uid",
+            "placeholder": "NO SPACE/Use _ instead of space, and it will be replaced in production with space"
+          }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "paragraph",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "options": [
+              "md",
+              "sm",
+              "lg"
+            ],
+            "default_value": "md"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
