@@ -29,11 +29,14 @@ const Info = async ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={clsx("Info", slice.variation == "imaged" && "Info-Imaged")}
+      style= { slice.variation == "justText" ? {
+        paddingBlock: `${slice.primary.size == 'sm' ? 4 : slice.primary.size == 'md' ? 2 : 8}rem`
+      } : {}}
       id={slice.primary.uid.toLowerCase()}
     >
       {slice.variation == "default" ? <PrismicNextImage field={data.bg_icon} className={`bg_icon ${slice.primary.bg_icon_pos}`} /> : ""}
       <div className="text-container">
-        <PrismicRichText field={slice.primary.heading} components={components} />
+        {slice.variation != "justtext" ? <PrismicRichText field={slice.primary.heading} components={components} />: ""}
         <PrismicRichText field={slice.primary.paragraph} components={components}/>
       </div>
       {slice.variation == "imaged" ? <PrismicNextImage field={slice.primary.image}/> : ""}
