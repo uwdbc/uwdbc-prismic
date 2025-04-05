@@ -55,7 +55,7 @@ export default function Header() {
   }, []); // Runs once on mount
 
   function handleClick() {
-    setnavOpen(prev => !prev);
+    setTimeout(()=>setnavOpen(prev => !prev), 200);
   }
 
   return (
@@ -86,9 +86,9 @@ export default function Header() {
           <div className="pages">
             { data.pages.map((item,index)=>(
               <div key={index}>
-                <span><Link href={item.page.url}>{item.display_name}</Link></span>
+                <span><Link href={item.page.url} onClick={handleClick}>{item.display_name}</Link></span>
                 {item.sub_pages?.toLowerCase().split(" ").map((id, i) => (
-                  <Link key={i} href={`${item.page.url}#${id}`}>{toCapitalize(id.replace("_", " "))}</Link>
+                  <Link key={i} href={`${item.page.url}#${id}`} onClick={handleClick}>{toCapitalize(id.replace("_", " "))}</Link>
                 ))}
               </div>
             ))}
