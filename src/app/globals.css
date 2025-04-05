@@ -510,6 +510,7 @@ h2 {
     padding-top: 2rem;
     overflow: hidden;
     font-weight: 300;
+    animation: navFadeIn 0.3s ease-in;
 }
 
 .navbar .close {
@@ -566,6 +567,22 @@ h2 {
 .navbar .socials .social-icon svg:hover path {
     fill: #cccaca;
 }
+
+@keyframes navFadeIn {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(60%, 0, 0);
+        -ms-transform: translate3d(60%, 0, 0);
+        transform: translate3d(60%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+  }
+}
+
 
 /* 
     ====

@@ -55,7 +55,11 @@ export default function Header() {
   }, []); // Runs once on mount
 
   function handleClick() {
-    setTimeout(()=>setnavOpen(prev => !prev), 200);
+    if (navOpen) {
+      setTimeout(()=>setnavOpen(prev => !prev), 200);
+    } else {
+      setnavOpen(prev => !prev)
+    }
   }
 
   return (
