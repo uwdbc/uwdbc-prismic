@@ -18,6 +18,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -861,7 +862,7 @@ section.calendar {
     width: 60vw;
 }
 
-.Info > .bg_icon.right {
+.bg_icon.right {
     
     top: auto;
     left: auto;
@@ -870,7 +871,7 @@ section.calendar {
     transform: translate(47%, 35%);
 }
 
-.Info > .bg_icon.none {
+.bg_icon.none {
     display: none;
 }
 
@@ -899,6 +900,7 @@ section.calendar {
     justify-content: center;
     gap: 5%;
     max-width: 1000px;
+    padding: 4rem 3rem;
 }
 
 .Info-Imaged > img {
@@ -1666,8 +1668,9 @@ button.direction.left {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     margin-top: 4rem;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .merchPhotos > h2 {
