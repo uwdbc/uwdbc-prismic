@@ -92,6 +92,7 @@ export type AlbumDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AlbumDocumentData>, "album", Lang>;
 
 type ExecPageDocumentDataSlicesSlice =
+  | FooterSlice
   | HeaderSlice
   | CoachingTeamSlice
   | ExecPageSlice;
