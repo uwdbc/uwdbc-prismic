@@ -129,7 +129,8 @@
             "options": [
               "md",
               "sm",
-              "lg"
+              "lg",
+              "0"
             ],
             "default_value": "md"
           }

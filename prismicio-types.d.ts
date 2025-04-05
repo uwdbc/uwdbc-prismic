@@ -1627,7 +1627,7 @@ export interface InfoSliceJustTextPrimary {
    * - **API ID Path**: info.justText.primary.size
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  size: prismic.SelectField<"md" | "sm" | "lg", "filled">;
+  size: prismic.SelectField<"md" | "sm" | "lg" | "0", "filled">;
 }
 
 /**

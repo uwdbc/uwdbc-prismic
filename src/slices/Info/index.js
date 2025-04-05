@@ -30,14 +30,16 @@ const Info = async ({ slice }) => {
       data-slice-variation={slice.variation}
       className={clsx("Info", slice.variation == "imaged" && "Info-Imaged")}
       style= { slice.variation == "justText" ? {
-        paddingBlock: `${slice.primary.size == 'sm' ? 4 : slice.primary.size == 'md' ? 2 : 8}rem`
+        paddingBlock: `${slice.primary.size == 'sm' ? 4 : slice.primary.size == 'md' ? 2 : slice.primary.size == 'lg' ? 8 : "0px 8"}rem`
       } : {}}
       id={slice.primary.uid.toLowerCase()}
     >
       {slice.variation == "default" ? <PrismicNextImage field={data.bg_icon} className={`bg_icon ${slice.primary.bg_icon_pos}`} /> : ""}
       <div className="text-container">
-        {slice.variation != "justtext" ? <PrismicRichText field={slice.primary.heading} components={components} />: ""}
-        <PrismicRichText field={slice.primary.paragraph} components={components}/>
+        {slice.variation != "justText" ? <PrismicRichText field={slice.primary.heading} components={components} />: ""}
+        {(slice.variation == "justText" && slice.primary.size == '0') ? 
+          <PrismicRichText field={slice.primary.paragraph} />
+        : <PrismicRichText field={slice.primary.paragraph} components={components}/>}
       </div>
       {slice.variation == "imaged" ? <PrismicNextImage field={slice.primary.image}/> : ""}
     </section>
