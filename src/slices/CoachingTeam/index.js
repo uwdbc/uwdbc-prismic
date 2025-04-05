@@ -4,7 +4,8 @@ import { PrismicNextImage } from "@prismicio/next";
 const components = {
   heading1: ({ children }) => <h1 className="s-title">{children}</h1>,
   heading3: ({children}) => <h3 className="coach-name">{children}</h3>,
-  paragraph: ({children}) => <p className="coach-role">{children}</p>
+  paragraph: ({children}) => <p className="coach-role">{children}</p>,
+  heading2: ({ children }) => <h2 style={{fontWeight: 600}}>{children}</h2>,
 };
 
 const CoachingTeam = ({ slice }) => {
@@ -17,19 +18,17 @@ const CoachingTeam = ({ slice }) => {
     >
       <PrismicRichText
         field={slice.primary.title}
-        components={{
-          heading2: ({ children }) => <h2>{children}</h2>,
-        }}
+        components={components}
       />
 
       <div className="coach-container">
         {slice.primary.coaches.map((item, index) => (
           <div key={index} className="coach-card-horizontal">
-            <PrismicNextImage
-              field={item.coachimage}
-              className="coach-image-horizontal"
-              alt=""
-            />
+              <PrismicNextImage
+                field={item.coachimage}
+                className="coach-image-horizontal"
+                alt=""
+              />
             <div className="coach-text">
               <PrismicRichText field={item.coachname} components={components}/>
               <PrismicRichText field={item.coachbio} components={components}/>

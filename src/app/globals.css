@@ -18,6 +18,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -509,6 +510,7 @@ h2 {
     padding-top: 2rem;
     overflow: hidden;
     font-weight: 300;
+    animation: navFadeIn 0.3s ease-in;
 }
 
 .navbar .close {
@@ -565,6 +567,22 @@ h2 {
 .navbar .socials .social-icon svg:hover path {
     fill: #cccaca;
 }
+
+@keyframes navFadeIn {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(60%, 0, 0);
+        -ms-transform: translate3d(60%, 0, 0);
+        transform: translate3d(60%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+  }
+}
+
 
 /* 
     ====
@@ -861,7 +879,7 @@ section.calendar {
     width: 60vw;
 }
 
-.Info > .bg_icon.right {
+.bg_icon.right {
     
     top: auto;
     left: auto;
@@ -870,7 +888,7 @@ section.calendar {
     transform: translate(47%, 35%);
 }
 
-.Info > .bg_icon.none {
+.bg_icon.none {
     display: none;
 }
 
@@ -899,6 +917,7 @@ section.calendar {
     justify-content: center;
     gap: 5%;
     max-width: 1000px;
+    padding: 4rem 3rem;
 }
 
 .Info-Imaged > img {
@@ -1451,6 +1470,10 @@ button.direction.left {
     text-align: center;
     padding: 60px 0;
     margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 
@@ -1460,27 +1483,25 @@ button.direction.left {
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    max-width: 90vw;
+    width: 90vw;
+    max-width: 1200px; /* Set max width for large screens */
     margin: 0 auto;
 }
 
 .coach-card-horizontal {
     display: flex;
-    align-items: center;
-
-    
+    align-items: flex-start;
    
     overflow: hidden;
     width: 95%; /* Increased width */
-    max-width: 1200px; /* Set max width for large screens */
     padding: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.coach-card-horizontal:hover {
+/* .coach-card-horizontal:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(255, 209, 0, 0.35);
-}
+} */
 
 .coach-image-horizontal {
     width: 300px;
@@ -1499,7 +1520,7 @@ button.direction.left {
 .coach-name {
     font-size: 2.2rem;
     font-weight: 700;
-    color: #ffd100;
+    color: var(--h-col);
     margin-bottom: 15px;
 }
 
@@ -1507,6 +1528,39 @@ button.direction.left {
     font-size: 1.2rem;
     color: white;
     line-height: 1.6;
+}
+
+@media only screen and (max-width:750px) {
+    .coach-container {
+        width: 100%;
+    }
+
+    .coach-role {
+        line-height: 120%;
+        font-size: 1rem;
+    }
+
+    .coach-name {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width:550px) {
+    .coach-card-horizontal {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .coach-name {
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .coach-text {
+        padding-left: 0;
+    }
 }
 
 
@@ -1518,44 +1572,34 @@ button.direction.left {
 .execPage {
     text-align: center;
     padding: 40px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
 }
 
 
 
 .execPage .card-container {
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 60vw;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    margin-block: 2rem;
+    width: 90%;
+    display: flex;
     justify-content: center;
-    align-items: start;
-}
-
-/* Ensure a maximum of three columns */
-@media (min-width: 800px) {
-    .execPage .card-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Adjust for smaller screens */
-@media (max-width: 799px) {
-    .execPage .card-container {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
+    flex-wrap: wrap;
+    gap: 28px;
 }
 
 .execPage .exec-card {
-    background-color: #1a1a1a; /* Dark background */
     box-shadow: 0 8px 16px rgba(255, 209, 0, 0.2); 
     overflow: hidden;
-    height: 350px;
-    width: 250px;
     position: relative;
+    width: 280px;
+    max-width: 320px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    aspect-ratio: 12/16;
+    margin-bottom: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1666,8 +1710,9 @@ button.direction.left {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     margin-top: 4rem;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .merchPhotos > h2 {

@@ -92,6 +92,7 @@ export type AlbumDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AlbumDocumentData>, "album", Lang>;
 
 type ExecPageDocumentDataSlicesSlice =
+  | FooterSlice
   | HeaderSlice
   | CoachingTeamSlice
   | ExecPageSlice;
@@ -1627,7 +1628,7 @@ export interface InfoSliceJustTextPrimary {
    * - **API ID Path**: info.justText.primary.size
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  size: prismic.SelectField<"md" | "sm" | "lg", "filled">;
+  size: prismic.SelectField<"md" | "sm" | "lg" | "0", "filled">;
 }
 
 /**

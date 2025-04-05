@@ -50,13 +50,16 @@ export default function Header() {
       const client = createClient();
       const response = await client.getSingle("navbar");
       setdata(response.data);
-      console.log(response.data);
     };
     fetchData();
   }, []); // Runs once on mount
 
   function handleClick() {
-    setnavOpen(prev => !prev);
+    if (navOpen) {
+      setTimeout(()=>setnavOpen(prev => !prev), 200);
+    } else {
+      setnavOpen(prev => !prev)
+    }
   }
 
   return (
@@ -87,9 +90,9 @@ export default function Header() {
           <div className="pages">
             { data.pages.map((item,index)=>(
               <div key={index}>
-                <span><Link href={item.page.url}>{item.display_name}</Link></span>
+                <span><Link href={item.page.url} onClick={handleClick}>{item.display_name}</Link></span>
                 {item.sub_pages?.toLowerCase().split(" ").map((id, i) => (
-                  <Link key={i} href={`${item.page.url}#${id}`}>{toCapitalize(id.replace("_", " "))}</Link>
+                  <Link key={i} href={`${item.page.url}#${id}`} onClick={handleClick}>{toCapitalize(id.replace("_", " "))}</Link>
                 ))}
               </div>
             ))}
