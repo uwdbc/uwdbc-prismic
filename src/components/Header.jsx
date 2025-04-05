@@ -50,7 +50,6 @@ export default function Header() {
       const client = createClient();
       const response = await client.getSingle("navbar");
       setdata(response.data);
-      console.log(response.data);
     };
     fetchData();
   }, []); // Runs once on mount
