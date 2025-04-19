@@ -1,9 +1,10 @@
 import { Inter, Montserrat, Michroma } from "next/font/google";
 import { clsx } from "clsx";
-import { createClient } from "@/prismicio";
+import { createClient, repositoryName } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 import "./globals.css";
 import Header from "@/components/Header";
+import { PrismicPreview } from "@prismicio/next";
 
 // Font Decleration
 const inter = Inter({
@@ -57,6 +58,7 @@ export default async function RootLayout({ children }) {
         </a>
         <Header />
         {children}
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   );
