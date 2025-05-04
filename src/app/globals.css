@@ -1408,11 +1408,12 @@ button.direction.left {
     }
 
     .gallaryOnHome > .sp > img {
-        width: 25%;
+        width: min(80%, 19rem);
+        aspect-ratio: 0.9;
     }
 
     button.direction {
-        top: calc(26rem + (0.9)*18vw);
+        top: 35rem;
     }
 
     button.direction.left {

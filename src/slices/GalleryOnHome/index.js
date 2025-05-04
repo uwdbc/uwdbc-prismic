@@ -25,6 +25,7 @@ const GalleryOnHome = ({ slice }) => {
   const [index, setIndex] = useState(0);
   const [albums, setAlbums] = useState([]);
   const [isTranstion, setTranstion] = useState(false);
+  const [windowSize, setWindowSize] = useState(10)
 
   function handleMove(newVal) {
     setIndex(newVal)
@@ -47,8 +48,15 @@ const GalleryOnHome = ({ slice }) => {
       setAlbums(albumData);
     }
 
+    window.addEventListener('resize', ()=> {
+      setWindowSize(window.innerWidth)
+    })
+
+    setWindowSize(window.innerWidth)
+
     fetchAlbumData();
-  }, [0])
+    return 
+  }, [])
 
   const curAlbum = albums[index];
   return (
@@ -72,17 +80,18 @@ const GalleryOnHome = ({ slice }) => {
       </div>
 
       <div className="sp">
-        {albums.map((item,i) => {
-          if (i == index) {
-            return <PrismicNextImage key={item.uid} field={item.data.secondary_image} style={{order:"1"}}/>
-          } else if (i == (index+1)%albums.length) {
-            return <PrismicNextImage key={item.uid} field={item.data.secondary_image} className="second" style={{order:"2"}} onClick={()=>handleMove(i)}/>
-          } else if (i == (index+2)%albums.length) {
-            return <PrismicNextImage key={item.uid} field={item.data.secondary_image} className="third" style={{order:"3"}} onClick={()=>handleMove(i)}/>
-          } else {
-            return ""
-          }
-        })}
+        { windowSize > 750 ?
+          albums.map((item,i) => {
+            if (i == index) {
+              return <PrismicNextImage key={item.uid} field={item.data.secondary_image} style={{order:"1"}}/>
+            } else if (i == (index+1)%albums.length) {
+              return <PrismicNextImage key={item.uid} field={item.data.secondary_image} className="second" style={{order:"2"}} onClick={()=>handleMove(i)}/>
+            } else if (i == (index+2)%albums.length) {
+              return <PrismicNextImage key={item.uid} field={item.data.secondary_image} className="third" style={{order:"3"}} onClick={()=>handleMove(i)}/>
+            } else {
+              return ""
+            }
+        }) : <PrismicNextImage key={albums[index].uid} className="alone" field={albums[index].data.secondary_image} style={{order:"1"}}/>}
       </div>
 
       <button className="direction" onClick={()=>handleMove((index+1)%albums.length)}>
