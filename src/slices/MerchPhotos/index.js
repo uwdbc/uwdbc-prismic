@@ -20,7 +20,7 @@ const MerchPhotos = async ({ slice }) => {
     >
       <PrismicNextImage field={data.bg_icon} className={`bg_icon`} />
       <PrismicRichText field={slice.primary.heading} />
-      <div className="photos">
+      <div className="photos" style={{zIndex:20}}>
         {slice.primary.photos.map((item, idx) => (
           <PrismicNextImage key={idx} field={item.image} />
         ))}
