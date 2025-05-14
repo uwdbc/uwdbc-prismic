@@ -1,4 +1,5 @@
 import { Inter, Montserrat, Michroma } from "next/font/google";
+import { Analytics } from '@vercel/analytics/next';
 import { clsx } from "clsx";
 import { createClient, repositoryName } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
@@ -58,6 +59,7 @@ export default async function RootLayout({ children }) {
         </a>
         <Header />
         {children}
+        <Analytics />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
